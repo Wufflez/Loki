@@ -1,0 +1,139 @@
+﻿<Window x:Class="Loki.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:loki="clr-namespace:Loki"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="280" MinWidth="260"
+        Height="480" Width="640"
+        Title="Loki"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Loaded="MainWindow_OnLoaded" Icon="/Resources/loki.ico">
+
+    <!-- Commands -->
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static loki:Commands.RevertCharacter}" CanExecute="CanSaveOrRevertExecute" Executed="RevertExecuted"/>
+        <CommandBinding Command="{x:Static loki:Commands.SaveCharacter}" CanExecute="CanSaveOrRevertExecute" Executed="SaveExecuted"/>
+    </Window.CommandBindings>
+
+    <!-- Mother -->
+    <DockPanel Margin="2">
+
+        <!-- Character Selection -->
+        <ComboBox DockPanel.Dock="Top" Margin="4" 
+                  ItemsSource="{Binding CharacterFiles}"
+                  SelectedItem="{Binding SelectedCharacterFile}" DisplayMemberPath="Name"/>
+
+
+        <!-- Revert / Save area -->
+        <Border Margin="4" DockPanel.Dock="Bottom">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <CheckBox VerticalAlignment="Center" Margin="4,0" IsChecked="{Binding CreateBackup}">
+                    Backup Character
+                </CheckBox>
+                <Button Width="96" Height="26" Margin="2,0" 
+                        Command="{x:Static loki:Commands.SaveCharacter}">Save</Button>
+                <Button Width="96" Height="26" Margin="2,0,0,0"
+                        Command="{x:Static loki:Commands.RevertCharacter}">Revert</Button>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Tab area -->
+        <TabControl Margin="4">
+
+            <!-- General -->
+            <TabItem Header="General">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Player Name -->
+                    <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Margin="6">Name</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="0" MinWidth="150"  Height="22" 
+                             TextAlignment="Left" VerticalContentAlignment="Center"
+                             VerticalAlignment="Center" HorizontalAlignment="Left" 
+                             Text="{Binding Profile.PlayerName}" />
+
+                    <!-- Beard Selection -->
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="6">Beard</TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="1" Width="100"
+                              HorizontalAlignment="Left" VerticalAlignment="Center"
+                              ItemsSource="{x:Static loki:Beard.AvailableBeards}"
+                              SelectedItem="{Binding Profile.Player.Beard}"
+                              DisplayMemberPath="DisplayName" />
+
+                    <!-- Beard Selection -->
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Margin="6">Hair</TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="2" Width="100"
+                              HorizontalAlignment="Left" VerticalAlignment="Center"
+                              ItemsSource="{x:Static loki:Hair.AvailableHairs}"
+                              SelectedItem="{Binding Profile.Player.Hair}"
+                              DisplayMemberPath="DisplayName" />
+                   
+                    <!-- Hair Colour-->
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Margin="6">Hair Colour</TextBlock>
+                    <xctk:ColorPicker Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Width="100" HorizontalAlignment="Left"
+                                      UsingAlphaChannel="False" ShowStandardColors="False"
+                                      SelectedColor="{Binding Profile.Player.HairColour}"/>
+                    <TextBlock FontStyle="Italic" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Margin="6" 
+                               Text="{Binding Profile.Player.RawHairRgb}" Foreground="Gray"/>
+
+                    <!-- Skin Colour -->
+                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Margin="6">Skin Colour</TextBlock>
+                    <xctk:ColorPicker Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Width="100" HorizontalAlignment="Left"
+                                      UsingAlphaChannel="False" ShowStandardColors="False"
+                                      SelectedColor="{Binding Profile.Player.SkinColour}"/>
+                    <TextBlock FontStyle="Italic" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" Margin="6" 
+                               Text="{Binding Profile.Player.RawSkinRgb}" Foreground="Gray"/>
+
+                    <!-- Experimental Skin Colour overdrive for radiant God mode -->
+                    <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" Margin="6">Skin Glow</TextBlock>
+                    <Slider Grid.Column="1" Grid.Row="5" Minimum="1" Maximum="50" 
+                            VerticalAlignment="Center" Value="{Binding Profile.Player.SkinGlow}" />
+
+                    <TextBlock 
+                        FontStyle="Italic" Foreground="Gray"
+                        Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" Margin="6" Text="Experimental! Scales colour for godly radiance"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Skills -->
+            <TabItem Header="Skills">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Profile.Player.Skills}"
+                              HorizontalContentAlignment="Stretch">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="loki:Skill">
+                                <DockPanel VerticalAlignment="Top" Margin="4,2">
+                                    <TextBlock DockPanel.Dock="Left" Text="{Binding Type, FallbackValue='skill_type'}"
+                                           VerticalAlignment="Center" Width="80" />
+                                    <TextBlock DockPanel.Dock="Right" Text="{Binding Level, StringFormat='0'}"
+                                           VerticalAlignment="Center" Width="25" TextAlignment="Right" />
+                                    <Slider Minimum="0" Maximum="100" TickFrequency="1" Value="{Binding Level}"
+                                        VerticalAlignment="Center" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
