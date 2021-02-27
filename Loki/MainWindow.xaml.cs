@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -19,6 +21,10 @@ namespace Loki
 
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+            Debug.Assert(version != null, nameof(version) + " != null");
+            Title = $"{Title} v{version.Major}.{version.Minor}";
+
             try
             {
                 CharacterFiles = await Task.Run(CharacterFile.LoadCharacterFiles);
