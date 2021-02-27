@@ -30,15 +30,18 @@
 
         <!-- Revert / Save area -->
         <Border Margin="4" DockPanel.Dock="Bottom">
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <CheckBox VerticalAlignment="Center" Margin="4,0" IsChecked="{Binding CreateBackup}">
+            <DockPanel HorizontalAlignment="Stretch">
+               
+                <Button DockPanel.Dock="Right" Width="96" Height="26" Margin="2,0" 
+                        Command="{x:Static loki:Commands.SaveCharacter}">Save</Button>
+                <Button DockPanel.Dock="Right" Width="96" Height="26" Margin="2,0,0,0"
+                        Command="{x:Static loki:Commands.RevertCharacter}">Revert</Button>
+                <CheckBox DockPanel.Dock="Right" VerticalAlignment="Center" Margin="4,0" IsChecked="{Binding CreateBackup}">
                     Backup Character
                 </CheckBox>
-                <Button Width="96" Height="26" Margin="2,0" 
-                        Command="{x:Static loki:Commands.SaveCharacter}">Save</Button>
-                <Button Width="96" Height="26" Margin="2,0,0,0"
-                        Command="{x:Static loki:Commands.RevertCharacter}">Revert</Button>
-            </StackPanel>
+
+                <Label DockPanel.Dock="Left">Created by Wuffles</Label>
+            </DockPanel>
         </Border>
 
         <!-- Main Tab area -->
