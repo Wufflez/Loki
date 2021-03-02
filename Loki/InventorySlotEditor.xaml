@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Loki.InventorySlotEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:loki="clr-namespace:Loki"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance loki:InventorySlot}"
+             d:DesignHeight="100" d:DesignWidth="100">
+    <UserControl.Resources>
+        <loki:BoolToVisibilityConverter x:Key="BoolToVis" />
+        <loki:BoolToVisibilityConverter x:Key="InvertedBoolToVis" True="Hidden" False="Visible" />
+    </UserControl.Resources>
+    <Border Background="DarkGray" CornerRadius="4">
+
+
+        <Viewbox>
+            <Grid Width="128" Height="128">
+                <!-- Quick slot number in the top left -->
+                <TextBlock Margin="6,0"
+                           FontWeight="Bold" FontSize="26"
+                           Foreground="#0D5994"
+                           Text="{Binding QuickSlotNumber, FallbackValue='X'}"
+                           HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+                <!-- EMPTY indicator -->
+                <TextBlock
+                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="DemiBold"
+                    Foreground="White" Opacity="0.25"
+                    Visibility="{Binding IsEmpty, Converter={StaticResource BoolToVis}}">
+                    EMPTY
+                </TextBlock>
+
+                <!-- Non empty stuff -->
+                <Grid Visibility="{Binding IsEmpty, Converter={StaticResource InvertedBoolToVis}}">
+                    <!-- Item name -->
+                    <Label
+                        FontSize="18"
+                        Content="{Binding Item.Name, FallbackValue='item_name'}" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                    <!-- Durability -->
+                    <TextBlock Text="{Binding Item.Durability, FallbackValue='durability'}"
+                               VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                </Grid>
+
+            </Grid>
+        </Viewbox>
+
+    </Border>
+</UserControl>

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -39,6 +41,8 @@ namespace Loki
         private int _modelIndex;
         private readonly List<Food> _food = new List<Food>();
         public List<Skill> Skills { get; } = new List<Skill>();
+
+        public Inventory Inventory { get; } = new Inventory(8, 4);
 
         public Beard Beard
         {
@@ -122,6 +126,8 @@ namespace Loki
                 input.Position += 12; // Skip over 'ZDOID', long + uint 
 
             player._inventory = ReadInventory(input, true);
+            player.UpdateInventorySlots();
+
             player._knownRecipes.AddRange(reader.ReadStrings(reader.ReadInt32()));
 
             if (version < 15)
@@ -217,6 +223,16 @@ namespace Loki
             return player;
         }
 
+        private void UpdateInventorySlots()
+        {
+            foreach (var item in _inventory)
+            {
+                var slot = Inventory.GetSlotAt(item.Pos);
+                if (slot != null)
+                    slot.Item = item;
+            }
+        }
+
         public void Write(Stream output, bool leaveOpen = false)
         {
             using var writer = new BinaryWriter(output, Encoding.UTF8, leaveOpen);
@@ -304,6 +320,7 @@ namespace Loki
                 int variant = version >= 102 ? reader.ReadInt32() : 0;
                 (long crafterId, string crafterName) =
                     version >= 103 ? (reader.ReadInt64(), reader.ReadString()) : (0, string.Empty);
+                Debug.WriteLine($"ReadInv: Item={name}, Position={pos}");
                 if(name != "") items.Add(new Item(name, stack, durability, pos, equiped, quality, variant, crafterId, crafterName));
             }
             return items;

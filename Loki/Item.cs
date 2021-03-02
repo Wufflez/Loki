@@ -1,6 +1,6 @@
 ﻿namespace Loki
 {
-    class Item
+    public class Item
     {
         public string Name { get; }
         public int Stack { get; }

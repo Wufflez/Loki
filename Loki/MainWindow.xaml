@@ -137,6 +137,58 @@
                     </ItemsControl>
                 </ScrollViewer>
             </TabItem>
+
+            <!-- Inventory Editor-->
+            <TabItem Header="Inventory">
+                
+                <loki:AspectRatioBox
+                    
+                    AspectRatio="2" UseLayoutRounding="False" DataContext="{Binding Profile.Player.Inventory}">
+
+                    <UniformGrid Columns="8" Rows="4"
+                                 MinWidth="200"
+                                 MinHeight="100">
+                        <!-- Inventory Slots -->
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[0]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[1]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[2]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[3]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[4]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[5]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[6]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[7]}" />
+
+
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[8]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[9]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[10]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[11]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[12]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[13]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[14]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[15]}" />
+
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[16]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[17]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[18]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[19]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[20]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[21]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[22]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[23]}" />
+
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[24]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[25]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[26]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[27]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[28]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[29]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[30]}" />
+                        <loki:InventorySlotEditor Margin="2" DataContext="{Binding Slots[31]}" />
+                    </UniformGrid>
+                </loki:AspectRatioBox>
+              
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
