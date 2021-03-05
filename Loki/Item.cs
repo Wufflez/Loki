@@ -1,4 +1,6 @@
-﻿namespace Loki
+﻿using System;
+
+namespace Loki
 {
     public class Item
     {
@@ -11,6 +13,9 @@
         public int Variant { get; }
         public long CrafterId { get; }
         public string CrafterName { get; }
+
+        public double MaxDurability =>
+            SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
 
         public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName)
         {
@@ -37,6 +42,11 @@
         public bool HasQualityLevels => SharedData?.MaxQuality > 1;
 
         public bool Unrecognised { get; }
+
+        public string StackText => $"{Stack} / {SharedData.MaxStack}";
+
+        public bool CanStack => SharedData.MaxStack > 1;
+
         public override string ToString() => $"{Name} [{Stack}]";
     }
 }

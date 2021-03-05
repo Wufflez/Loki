@@ -146,8 +146,8 @@
 
                     
                     <!-- Item Picker -->
-                    <ScrollViewer DockPanel.Dock="Left">
-                        <ItemsControl MinWidth="200" DockPanel.Dock="Left" Margin="4">
+                    <ScrollViewer DockPanel.Dock="Left" Width="256" Margin="4">
+                        <ItemsControl DockPanel.Dock="Left">
 
                             <ItemsControl.ItemsSource>
                                 <Binding>

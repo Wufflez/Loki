@@ -168,12 +168,12 @@ namespace Loki
 
         private void ItemPickerItemMouseMove(object sender, MouseEventArgs e)
         {
-            if(sender is TextBlock txt && e.LeftButton == MouseButtonState.Pressed)
+            if(sender is FrameworkElement element && e.LeftButton == MouseButtonState.Pressed)
             {
-                if (txt.DataContext is InventoryListItem item)
+                if (element.DataContext is InventoryListItem item)
                 {
                     var data = new DataObject(item.ItemData);
-                    DragDrop.DoDragDrop(txt, data, DragDropEffects.Copy);
+                    DragDrop.DoDragDrop(element, data, DragDropEffects.Copy);
                 }
             }
         }

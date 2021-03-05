@@ -10,6 +10,73 @@
     <UserControl.Resources>
         <loki:BoolToVisibilityConverter x:Key="BoolToVis" />
         <loki:BoolToVisibilityConverter x:Key="InvertedBoolToVis" True="Hidden" False="Visible" />
+        <SolidColorBrush x:Key="ProgressBar.Progress" Color="#609C6B"/>
+        <SolidColorBrush x:Key="ProgressBar.Background" Color="#3A3A3A"/>
+        <SolidColorBrush x:Key="ProgressBar.Border" Color="#FFBCBCBC"/>
+        <Style x:Key="RoundedProgressBar" TargetType="{x:Type ProgressBar}">
+            <Setter Property="Foreground" Value="{StaticResource ProgressBar.Progress}"/>
+            <Setter Property="Background" Value="{StaticResource ProgressBar.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ProgressBar.Border}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                CornerRadius="4" Padding="1.5">
+                        <Grid x:Name="TemplateRoot">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Determinate"/>
+                                    <VisualState x:Name="Indeterminate">
+                                        <Storyboard RepeatBehavior="Forever">
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <PointAnimationUsingKeyFrames Storyboard.TargetName="Animation" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)">
+                                                <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
+                                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
+                                                <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
+                                            </PointAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Rectangle x:Name="PART_Track"/>
+                            <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left">
+                                <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}" RadiusX="3" RadiusY="3"/>
+                                    <Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RadiusX="3" RadiusY="3" RenderTransformOrigin="0.5,0.5">
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                            </Grid>
+                        </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Orientation" Value="Vertical">
+                                <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsIndeterminate" Value="true">
+                                <Setter Property="Visibility" TargetName="Indicator" Value="Collapsed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <Border CornerRadius="4" x:Name="LayoutRoot" AllowDrop="True" Drop="BorderDrop">
         <Border.Style>
@@ -51,27 +118,38 @@
                                Text="{Binding Item.Quality, FallbackValue='X'}"
                                HorizontalAlignment="Right" VerticalAlignment="Top" />
 
+                    <!-- Durability -->
+                    <ProgressBar Style="{DynamicResource RoundedProgressBar}" Minimum="0" Maximum="{Binding Item.MaxDurability}" 
+                                 Value="{Binding Item.Durability, Mode=OneWay}"
+                                 Visibility="{Binding Item.SharedData.UsesDurability, Converter={StaticResource BoolToVis}}"
+                                 Width="110" Margin="8" Height="8"
+                                 VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+
                     <!-- Item name -->
                     <Border>
                         <Border.CacheMode>
                             <BitmapCache RenderAtScale="2"/>
                         </Border.CacheMode>
-                        <Label
-                            FontSize="18" FontWeight="DemiBold" Foreground="White"
-                            Content="{Binding Item.SharedData.DisplayName, FallbackValue='item_name'}" HorizontalAlignment="Center"
-                            VerticalAlignment="Center">
-                            <Label.Effect>
+                        <Grid>
+                            <Grid.Effect>
                                 <DropShadowEffect ShadowDepth="0" />
-                            </Label.Effect>
-                        </Label>
+                            </Grid.Effect>
+                            <Label
+                                FontSize="18" FontWeight="DemiBold" Foreground="White"
+                                Content="{Binding Item.SharedData.DisplayName, FallbackValue='item_name'}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                            <TextBlock
+                                FontSize="14" FontWeight="DemiBold" Foreground="White"
+                                Visibility="{Binding Item.CanStack, Converter={StaticResource BoolToVis}}"
+                                Text="{Binding Item.StackText, FallbackValue='x / y'}"
+                                HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="4" />
+                        </Grid>
                     </Border>
 
-                    <!-- Durability -->
-                    <TextBlock Text="{Binding Item.Durability, FallbackValue='durability'}"
-                               Visibility="{Binding Item.SharedData.UsesDurability, Converter={StaticResource BoolToVis}}"
-                               VerticalAlignment="Bottom" HorizontalAlignment="Center" />
+                    
 
-                <!-- Delete button cross thing -->
+                    <!-- Delete button cross thing -->
                 <Button HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0" Cursor="Hand"
                         Margin="6" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
                         Command="{Binding DeleteItem}" Width="24" Height="24">
