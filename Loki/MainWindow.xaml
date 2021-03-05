@@ -139,51 +139,57 @@
             </TabItem>
 
             <!-- Inventory Editor-->
-            <TabItem Header="Inventory">
+            <TabItem Header="Inventory" Height="20" VerticalAlignment="Top">
 
                 <!-- Todo: Tidy up this mess lol. -->
                 <DockPanel>
 
+                    
                     <!-- Item Picker -->
-                    <ListBox MinWidth="200" DockPanel.Dock="Left" Margin="4">
-                        <ListBox.ItemsSource>
-                            <Binding>
-                                <Binding.Source>
-                                    <CollectionViewSource
-                                        Source="{x:Static loki:InventoryListItem.AllItems}">
-                                        <CollectionViewSource.GroupDescriptions>
-                                            <PropertyGroupDescription PropertyName="Category" />
-                                        </CollectionViewSource.GroupDescriptions>
-                                    </CollectionViewSource>
-                                </Binding.Source>
-                            </Binding>
-                        </ListBox.ItemsSource>
+                    <ScrollViewer DockPanel.Dock="Left">
+                        <ItemsControl MinWidth="200" DockPanel.Dock="Left" Margin="4">
 
-                        <ListBox.GroupStyle>
-                            <GroupStyle>
-                                <GroupStyle.ContainerStyle>
-                                    <Style TargetType="{x:Type GroupItem}">
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type GroupItem}">
-                                                    <Expander Header="{Binding Name}" IsExpanded="True">
-                                                        <ItemsPresenter Margin="20,0,0,0" />
-                                                    </Expander>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </GroupStyle.ContainerStyle>
-                            </GroupStyle>
-                        </ListBox.GroupStyle>
-                        <ListBox.ItemTemplate>
-                            <DataTemplate DataType="loki:InventoryListItem">
-                                <TextBlock Text="{Binding Name}"
-                                           MouseMove="ItemPickerItemMouseMove"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                       
-                    </ListBox>
+                            <ItemsControl.ItemsSource>
+                                <Binding>
+                                    <Binding.Source>
+                                        <CollectionViewSource
+                                            Source="{x:Static loki:InventoryListItem.AllItems}">
+                                            <CollectionViewSource.GroupDescriptions>
+                                                <PropertyGroupDescription PropertyName="Category" />
+                                            </CollectionViewSource.GroupDescriptions>
+                                        </CollectionViewSource>
+                                    </Binding.Source>
+                                </Binding>
+                            </ItemsControl.ItemsSource>
+
+                            <ItemsControl.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.ContainerStyle>
+                                        <Style TargetType="{x:Type GroupItem}">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                        <Expander Header="{Binding Name}" IsExpanded="True">
+                                                            <ItemsPresenter Margin="20,0,0,0" />
+                                                        </Expander>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </GroupStyle.ContainerStyle>
+                                </GroupStyle>
+                            </ItemsControl.GroupStyle>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="loki:InventoryListItem">
+                                    <Border Margin="2" Background="LightGray" Padding="8,2" CornerRadius="2"
+                                            MouseMove="ItemPickerItemMouseMove">
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                        </ItemsControl>
+                    </ScrollViewer>
 
                     <loki:AspectRatioBox
                     
