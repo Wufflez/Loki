@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Loki
 {
     public readonly struct Hair
     {
-        public static Hair[] AvailableHairs =
+        private static readonly Hair[] SensibleHairs =
         {
             new Hair("No hair", "HairNone"),
             new Hair("Braided 1", "Hair3"),
@@ -23,6 +24,12 @@ namespace Loki
             new Hair("Side Swept 3", "Hair14"),
             new Hair("Blob hair", "TrophyBlob"),
         };
+
+        private static readonly IEnumerable<Hair> SillyHairs =
+            ItemDb.AllItems.Where(i => i.ItemType == ItemType.Trophy)
+                .Select(i => new Hair(i.DisplayName, i.ItemName));
+
+        public static readonly Hair[] AvailableHairs = SensibleHairs.Concat(SillyHairs).ToArray();
 
         public string DisplayName { get; }
         public string Code { get; }

@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Loki
 {
     public readonly struct Beard
     {
-        public static Beard[] AvailableBeards =
+        private static readonly Beard[] SensibleBeards = 
         {
             new Beard("No beard", "BeardNone"),
             new Beard("Braided 1", "Beard5"),
@@ -17,10 +18,13 @@ namespace Loki
             new Beard("Short 2", "Beard4"),
             new Beard("Short 3", "Beard7"),
             new Beard("Thick 1", "Beard8"),
-            new Beard("Deer Lord", "TrophyDeer"),
-            new Beard("Troll Master", "TrophyForestTroll"),
-            new Beard("Deathsquito", "TrophyDeathsquito"),
         };
+
+        private static readonly IEnumerable<Beard> SillyBeards = 
+            ItemDb.AllItems.Where(i => i.ItemType == ItemType.Trophy)
+            .Select(i => new Beard(i.DisplayName, i.ItemName));
+
+        public static Beard[] AvailableBeards = SensibleBeards.Concat(SillyBeards).ToArray();
 
         public string DisplayName { get; }
         public string Code { get; }
