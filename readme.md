@@ -8,6 +8,7 @@ It is currently in a very early pre-release state and therefore use only at your
 
 ![Screenshot of Loki editing character properties](Screenshots/loki-screenshot-1.png)
 ![Screenshot of a Deer Lord](Screenshots/loki-screenshot-4.png)
+![Screenshot of inventory editor](Screenshots/loki-screenshot-inv.png)
 ![Screenshot of Loki editing character skills](Screenshots/loki-screenshot-2.png)
 ![Screenshot of Wuffles looking radioactive](Screenshots/loki-screenshot-3.png)
 
