@@ -247,6 +247,8 @@ namespace Loki
             writer.Write(_guardianPowerCooldown);
 
             writer.Write(InventoryVersion);
+            // Rebuild Inventory (TODO: Review)
+            _inventory = Inventory.Slots.Select(slot => slot.Item).Where(item => item != null).ToList();
             writer.Write(_inventory.Count);
             foreach (var item in _inventory)
             {

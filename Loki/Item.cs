@@ -23,8 +23,20 @@
             Variant = variant;
             CrafterId = crafterId;
             CrafterName = crafterName;
-        }
+            SharedData = ItemDb.TryFindSharedData(name);
 
+            if (SharedData == null)
+            {
+                Unrecognised = true;
+            }
+
+        }
+        
+        public SharedItemData SharedData { get; }
+
+        public bool HasQualityLevels => SharedData?.MaxQuality > 1;
+
+        public bool Unrecognised { get; }
         public override string ToString() => $"{Name} [{Stack}]";
     }
 }

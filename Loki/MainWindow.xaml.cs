@@ -5,7 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Media3D;
 
 namespace Loki
 {
@@ -162,6 +164,18 @@ namespace Loki
         private void SaveExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             SaveProfile(SelectedCharacterFile);
+        }
+
+        private void ItemPickerItemMouseMove(object sender, MouseEventArgs e)
+        {
+            if(sender is TextBlock txt && e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (txt.DataContext is InventoryListItem item)
+                {
+                    var data = new DataObject(item.ItemData);
+                    DragDrop.DoDragDrop(txt, data, DragDropEffects.Copy);
+                }
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ namespace Loki
             new Hair("Side Swept 1", "Hair9"),
             new Hair("Side Swept 2", "Hair10"),
             new Hair("Side Swept 3", "Hair14"),
+            new Hair("Blob hair", "TrophyBlob"),
         };
 
         public string DisplayName { get; }

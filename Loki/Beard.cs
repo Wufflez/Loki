@@ -17,6 +17,9 @@ namespace Loki
             new Beard("Short 2", "Beard4"),
             new Beard("Short 3", "Beard7"),
             new Beard("Thick 1", "Beard8"),
+            new Beard("Deer Lord", "TrophyDeer"),
+            new Beard("Troll Master", "TrophyForestTroll"),
+            new Beard("Deathsquito", "TrophyDeathsquito"),
         };
 
         public string DisplayName { get; }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using JetBrains.Annotations;
 
 namespace Loki
@@ -18,6 +19,7 @@ namespace Loki
         public int? QuickSlotNumber { get; }
         public bool IsEmpty => Item == null;
 
+        public ICommand DeleteItem => new RelayCommand(_ => Item = null);
 
         public Item Item
         {

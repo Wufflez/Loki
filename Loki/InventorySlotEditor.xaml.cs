@@ -1,26 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Loki
 {
     /// <summary>
     /// Interaction logic for InventorySlotEditor.xaml
     /// </summary>
-    public partial class InventorySlotEditor : UserControl
+    public partial class InventorySlotEditor
     {
         public InventorySlotEditor()
         {
             InitializeComponent();
+        }
+
+        private void BorderDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetData(typeof(SharedItemData)) is SharedItemData itemData)
+            {
+                if (this.DataContext is InventorySlot slot)
+                {
+                    slot.Item = new Item(itemData.ItemName, itemData.MaxStack, (float)itemData.MaxDurability, slot.Position,
+                        false, 1, 0, 0, "Loki");
+                }
+            }
         }
     }
 }
