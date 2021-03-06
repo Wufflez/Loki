@@ -4,14 +4,6 @@ This program allows editing the character files for the game Valheim (.fch)
 
 It is currently in a very early pre-release state and therefore use only at your own risk. The game is also in pre-release so the combination means it is highly likely that things will break.
 
-## Screenshots
-
-![Screenshot of Loki editing character properties](Screenshots/loki-screenshot-1.png)
-![Screenshot of a Deer Lord](Screenshots/loki-screenshot-4.png)
-![Screenshot of inventory editor](Screenshots/loki-screenshot-inv.png)
-![Screenshot of Loki editing character skills](Screenshots/loki-screenshot-2.png)
-![Screenshot of Wuffles looking radioactive](Screenshots/loki-screenshot-3.png)
-
 ## Features
 
 - Detects game characters
@@ -27,6 +19,14 @@ It is currently in a very early pre-release state and therefore use only at your
 - Simple Inventory editor (WIP)
   - Delete items
   - Add new items from palette
+
+## Screenshots
+
+![Screenshot of Loki editing character properties](Screenshots/loki-screenshot-1.png)
+![Screenshot of a Deer Lord](Screenshots/loki-screenshot-4.png)
+![Screenshot of inventory editor](Screenshots/loki-screenshot-inv.png)
+![Screenshot of Loki editing character skills](Screenshots/loki-screenshot-2.png)
+![Screenshot of Wuffles looking radioactive](Screenshots/loki-screenshot-3.png)
 
 ## Usage
 
