@@ -134,9 +134,10 @@
                             <Grid.Effect>
                                 <DropShadowEffect ShadowDepth="0" />
                             </Grid.Effect>
-                            <Label
+                            <TextBlock
+                                TextWrapping="Wrap" TextAlignment="Center"
                                 FontSize="18" FontWeight="DemiBold" Foreground="White"
-                                Content="{Binding Item.SharedData.DisplayName, FallbackValue='item_name'}"
+                                Text="{Binding Item.SharedData.DisplayName, FallbackValue='item_name'}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" />
                             <TextBlock
