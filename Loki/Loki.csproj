@@ -16,6 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\calander-16.ico" />
+    <None Remove="Resources\clock-16.ico" />
     <None Remove="Resources\loki.ico" />
   </ItemGroup>
 
@@ -31,6 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\calander-16.ico" />
+    <Resource Include="Resources\clock-16.ico" />
     <Resource Include="Resources\loki.ico" />
   </ItemGroup>
 

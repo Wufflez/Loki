@@ -9,5 +9,8 @@ namespace Loki
 
         public static RoutedUICommand SaveCharacter =
             new RoutedUICommand("Save", nameof(RevertCharacter), typeof(Commands));
+
+        public static RoutedUICommand RestoreCharacter =
+            new RoutedUICommand("Restore", nameof(RestoreCharacter), typeof(Commands));
     }
 }

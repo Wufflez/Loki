@@ -177,5 +177,23 @@ namespace Loki
                 }
             }
         }
+
+        private void CanRestoreExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = SelectedCharacterFile != null;
+        }
+
+        private void RestoreExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            // Select backup to restore from.
+            var restoreWindow = new Backups(SelectedCharacterFile) {Owner = this};
+            restoreWindow.ShowDialog();
+
+            if (restoreWindow.DialogResult == true)
+            {
+                // Reload profile, as user has restored it from another file.
+                LoadProfile(SelectedCharacterFile);
+            }
+        }
     }
 }
