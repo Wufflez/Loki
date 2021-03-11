@@ -6,8 +6,7 @@ It is currently in a very early pre-release state and therefore use only at your
 
 ## Features
 
-- Detects game characters
-- Automatic back up before saving changes
+- Detects game characters for easy selection
 - Edit character name
 - Edit beard style
 - Edit hair colour
@@ -19,6 +18,9 @@ It is currently in a very early pre-release state and therefore use only at your
 - Simple Inventory editor (WIP)
   - Delete items
   - Add new items from palette
+- Backup System
+  - Automatic backup created before changes are saved
+  - Easy Backup Restore UI to fix mistakes
 
 ## Screenshots
 
