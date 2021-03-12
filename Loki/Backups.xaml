@@ -29,8 +29,14 @@
         <Border Background="{x:Static SystemColors.ControlDarkBrush}"
                 DockPanel.Dock="Bottom">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <CheckBox IsChecked="True" x:Name="BackupCheckbox" VerticalAlignment="Center"
-                          ToolTip="Creates a new backup of the current character file before doing the restore operation.">
+                <CheckBox IsChecked="True" x:Name="BackupCheckbox" VerticalAlignment="Center">
+                    <CheckBox.ToolTip>
+                        <TextBlock>
+                            Creates a new backup of the current character file before doing the restore operation.
+                            <LineBreak/>
+                            <Bold>You probably want to leave this ticked to be honest.</Bold>
+                        </TextBlock>
+                    </CheckBox.ToolTip>
                     Create new backup before restore
                 </CheckBox>
                 <Button Command="{x:Static loki:Commands.RestoreCharacter}"
