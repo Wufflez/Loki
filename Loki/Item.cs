@@ -4,8 +4,24 @@ namespace Loki
 {
     public class Item
     {
+        private int _stack;
         public string Name { get; }
-        public int Stack { get; }
+
+        public int Stack
+        {
+            get => _stack;
+            set
+            {
+                if (SharedData != null)
+                {
+                    if (value > SharedData.MaxStack)
+                        value = SharedData.MaxStack;
+                }
+                if (value < 0) value = 0;
+                _stack = value;
+            }
+        }
+
         public float Durability { get; }
         public Vector2i Pos { get; }
         public bool Equiped { get; }

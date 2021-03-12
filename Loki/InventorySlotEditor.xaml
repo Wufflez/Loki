@@ -77,7 +77,51 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style x:Key="HiddenTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                CornerRadius="4"
+                                BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" 
+                                SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#7000"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#7000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
+
+
     <Border CornerRadius="4" x:Name="LayoutRoot" AllowDrop="True" Drop="BorderDrop">
         <Border.Style>
             <Style TargetType="Border">
@@ -140,11 +184,21 @@
                                 Text="{Binding Item.SharedData.DisplayName, FallbackValue='item_name'}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" />
-                            <TextBlock
-                                FontSize="14" FontWeight="DemiBold" Foreground="White"
-                                Visibility="{Binding Item.CanStack, Converter={StaticResource BoolToVis}}"
-                                Text="{Binding Item.StackText, FallbackValue='x / y'}"
-                                HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="4" />
+                            <!-- Item stack count / edit -->
+                            <StackPanel Orientation="Horizontal" Margin="2"
+                                        Visibility="{Binding Item.CanStack, Converter={StaticResource BoolToVis}}"
+                                        VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                                <TextBox 
+                                    Style="{StaticResource HiddenTextBox}"
+                                    PreviewMouseLeftButtonDown="StackEditPreviewMouseDown"
+                                    KeyUp="StackEditKeyUp"
+                                    FontSize="14" FontWeight="DemiBold" Foreground="White" 
+                                    ToolTip="Edit the stack size"
+                                    VerticalAlignment="Center" Text="{Binding Item.Stack}"/>
+                                <TextBlock
+                                    FontSize="14" FontWeight="DemiBold" Foreground="White"
+                                    VerticalAlignment="Center" Text="{Binding Item.SharedData.MaxStack, StringFormat=' / {0}', FallbackValue=' / MAX'}"/>
+                            </StackPanel>
                         </Grid>
                     </Border>
 
@@ -153,7 +207,8 @@
                     <!-- Delete button cross thing -->
                 <Button HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0" Cursor="Hand"
                         Margin="6" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                        Command="{Binding DeleteItem}" Width="24" Height="24">
+                        Command="{Binding DeleteItem}" Width="24" Height="24"
+                        KeyboardNavigation.TabNavigation="None" Focusable="False">
                     <Button.Template>
                         <!-- This is a cool template we should probably move it to be some shared resource to use elsewhere -->
                         <ControlTemplate TargetType="Button">
