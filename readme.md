@@ -18,6 +18,8 @@ It is currently in a very early pre-release state and therefore use only at your
 - Simple Inventory editor (WIP)
   - Delete items
   - Add new items from palette
+  - Edit stack size
+  - Repair damaged items
 - Backup System
   - Automatic backup created before changes are saved
   - Easy Backup Restore UI to fix mistakes
@@ -46,13 +48,10 @@ Backups are created in `%LOCALAPPDATA%\TwoThreeSix\Loki\CharacterBackups`
 ## Coming Next
 
 - Improvements to Inventory editor
-  - Edit stack size
-  - Repair
   - Upgrade / Downgrade
-- Restore from backup UI for a nice recovery workflow
 - Installer
-- See player stats, kills, deaths etc
+- See & Edit player stats, kills, deaths etc
 - World Data management (e.g. trim out bloat from old worlds)
-- Tooltips & Help
+- More tooltips & in app help
 - Detect game running and warn user (game could save over file at any point)
 - Dark theme to protect sensitive gamer eyes
