@@ -119,6 +119,51 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="CoolButton" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <!-- This is a cool template we should probably move it to be some shared resource to use elsewhere -->
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="MrBorder" Background="{TemplateBinding Background}" CornerRadius="4" RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <ScaleTransform x:Name="BorderScale"/>
+                                </Border.RenderTransform>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.25">
+                                                <VisualTransition.GeneratedEasingFunction>
+                                                    <QuadraticEase/>
+                                                </VisualTransition.GeneratedEasingFunction>
+                                            </VisualTransition>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState Name="Disabled">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="MrBorder" Storyboard.TargetProperty="Opacity" To="0.25" Duration="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState Name="Normal"/>
+                                        <VisualState Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="MrBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1.2" Duration="0"/>
+                                                <DoubleAnimation Storyboard.TargetName="MrBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1.2" Duration="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ContentPresenter Margin="4"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="LittleSquareCoolButton" BasedOn="{StaticResource CoolButton}" TargetType="Button">
+            <Setter Property="Width" Value="24"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="Focusable" Value="False"/>
+        </Style>
     </UserControl.Resources>
 
 
@@ -203,80 +248,72 @@
                     </Border>
 
                     
-
-                    <!-- Delete button cross thing -->
-                <Button HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0" Cursor="Hand"
-                        Margin="6" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
-                        Command="{Binding DeleteItem}" Width="24" Height="24"
-                        KeyboardNavigation.TabNavigation="None" Focusable="False">
-                    <Button.Template>
-                        <!-- This is a cool template we should probably move it to be some shared resource to use elsewhere -->
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="MrBorder" Background="{TemplateBinding Background}" CornerRadius="4" RenderTransformOrigin="0.5,0.5">
-                                <Border.RenderTransform>
-                                    <ScaleTransform x:Name="BorderScale"/>
-                                </Border.RenderTransform>
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup Name="CommonStates">
-                                        <VisualStateGroup.Transitions>
-                                            <VisualTransition GeneratedDuration="0:0:0.25">
-                                                <VisualTransition.GeneratedEasingFunction>
-                                                    <QuadraticEase/>
-                                                </VisualTransition.GeneratedEasingFunction>
-                                            </VisualTransition>
-                                        </VisualStateGroup.Transitions>
-                                        <VisualState Name="Normal"/>
-                                        <VisualState Name="MouseOver">
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetName="MrBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" To="1.2" Duration="0"/>
-                                                <DoubleAnimation Storyboard.TargetName="MrBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" To="1.2" Duration="0"/>
-                                            </Storyboard>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                                <ContentPresenter Margin="4"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Setters>
-                                <Setter Property="Opacity" Value="0.0"/>
-                            </Style.Setters>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding ElementName=LayoutRoot, Path=IsMouseOver}" Value="True">
-                                    <DataTrigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1"
-                                                                 Duration="0:0:0.5">
-                                                    <DoubleAnimation.EasingFunction>
-                                                        <CubicEase />
-                                                    </DoubleAnimation.EasingFunction>
-                                                </DoubleAnimation>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </DataTrigger.EnterActions>
-                                    <DataTrigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0"
-                                                                 Duration="0:0:0.5">
-                                                    <DoubleAnimation.EasingFunction>
-                                                        <CubicEase />
-                                                    </DoubleAnimation.EasingFunction>
-                                                </DoubleAnimation>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </DataTrigger.ExitActions>
+                    <!-- Layer fade in/out with mouse over-->
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Style.Setters>
+                                    <Setter Property="Opacity" Value="0"/>
+                                </Style.Setters>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=LayoutRoot, Path=IsMouseOver}"
+                                                 Value="True">
+                                        <DataTrigger.EnterActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1"
+                                                                     Duration="0:0:0.5">
+                                                        <DoubleAnimation.EasingFunction>
+                                                            <CubicEase />
+                                                        </DoubleAnimation.EasingFunction>
+                                                    </DoubleAnimation>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.EnterActions>
+                                        <DataTrigger.ExitActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0"
+                                                                     Duration="0:0:0.5">
+                                                        <DoubleAnimation.EasingFunction>
+                                                            <CubicEase />
+                                                        </DoubleAnimation.EasingFunction>
+                                                    </DoubleAnimation>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.ExitActions>
                                     </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+
+                        <!-- Buttons in the top right -->
+                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="6">
+                            <!-- Delete button -->
+                            <Button Padding="0" Cursor="Hand" 
+                                    ToolTip="Delete"
+                                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                    Command="{Binding DeleteItem}" 
+                                    Style="{StaticResource LittleSquareCoolButton}">
+                                <Path Data="M2,2 L10,10 M2,10 L10,2" Stroke="Red" Stretch="Fill"
+                                      StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round" />
+                            </Button>
+
+                            <!-- Repair button -->
+                            <Button Padding="0" Cursor="Hand" Margin="0,2,0,0"
+                                    ToolTip="Repair"
+                                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                    Command="{Binding RepairItem}" 
+                                    Style="{StaticResource LittleSquareCoolButton}"
+                                    Visibility="{Binding Item.SharedData.UsesDurability, Converter={StaticResource BoolToVis}}">
+                                <Image Source="Resources/wrench-32.ico" />
+                            </Button>
+                        </StackPanel>
+                        
+
+
+                    </Grid>
                     
-                    <Path Data="M2,2 L10,10 M2,10 L10,2" Stroke="Red" Stretch="Fill"
-                          StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round" />
-                </Button>
                     
                 </Grid>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using JetBrains.Annotations;
 
 namespace Loki
 {
@@ -16,6 +17,9 @@ namespace Loki
 
         public bool CanExecute(object param) => _canExecute?.Invoke(param) ?? true;
         public void Execute(object param) => _execute(param);
+
+        [UsedImplicitly]
         public event EventHandler CanExecuteChanged;
+        public virtual void OnCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }

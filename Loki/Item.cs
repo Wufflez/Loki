@@ -1,10 +1,14 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 
 namespace Loki
 {
-    public class Item
+    public class Item: INotifyPropertyChanged
     {
         private int _stack;
+        private float _durability;
         public string Name { get; }
 
         public int Stack
@@ -12,6 +16,7 @@ namespace Loki
             get => _stack;
             set
             {
+                if (value == _stack) return;
                 if (SharedData != null)
                 {
                     if (value > SharedData.MaxStack)
@@ -19,10 +24,21 @@ namespace Loki
                 }
                 if (value < 0) value = 0;
                 _stack = value;
+                OnPropertyChanged();
             }
         }
 
-        public float Durability { get; }
+        public float Durability
+        {
+            get => _durability;
+            set
+            {
+                if (value.Equals(_durability)) return;
+                _durability = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Vector2i Pos { get; }
         public bool Equiped { get; }
         public int Quality { get; }
@@ -64,5 +80,12 @@ namespace Loki
         public bool CanStack => SharedData.MaxStack > 1;
 
         public override string ToString() => $"{Name} [{Stack}]";
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
