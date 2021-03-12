@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Media3D;
 
 namespace Loki
@@ -131,6 +132,8 @@ namespace Loki
                     using var fileStream = File.Create(character.FilePath);
                     profile.Write(fileStream);
                 });
+
+                ShowNotification("Character Saved");
             }
             catch (Exception ex)
             {
@@ -142,6 +145,7 @@ namespace Loki
             {
                 SaveInProgress = false;
                 Cursor = null;
+                CommandManager.InvalidateRequerySuggested();
             }
         }
 
@@ -153,12 +157,13 @@ namespace Loki
 
         private void CanSaveOrRevertExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = SelectedCharacterFile != null;
+            e.CanExecute = SelectedCharacterFile != null && !SaveInProgress;
         }
 
         private void RevertExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             LoadProfile(SelectedCharacterFile);
+            ShowNotification("Character Reverted");
         }
 
         private void SaveExecuted(object sender, ExecutedRoutedEventArgs e)
@@ -194,6 +199,20 @@ namespace Loki
                 // Reload profile, as user has restored it from another file.
                 LoadProfile(SelectedCharacterFile);
             }
+        }
+
+        private async Task ShowNotification(string notifyText)
+        {
+            NotifyText.Text = notifyText;
+            NotificationBorder.Opacity = 1;
+            NotificationBorder.Visibility = Visibility.Visible;
+            
+            await Task.Delay(2000);
+            var opacityAnim = new DoubleAnimation(1.0, 0.0, new Duration(TimeSpan.FromSeconds(0.3)));
+            opacityAnim.FillBehavior = FillBehavior.Stop;
+            opacityAnim.Completed += (sender, args) => NotificationBorder.Visibility = Visibility.Hidden;
+            NotificationBorder.BeginAnimation(OpacityProperty, opacityAnim);
+            
         }
     }
 }
