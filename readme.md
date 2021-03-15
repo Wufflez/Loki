@@ -34,7 +34,7 @@ It is currently in a very early pre-release state and therefore use only at your
 
 ## Usage
 
-> Note: Requires the .NET runtime to be installed.
+> Note: Requires the .NET Core 3.1 runtime to be installed.
 > Get it here if required: <https://dotnet.microsoft.com/download/dotnet/3.1/runtime>
 
 No installer yet, so just simply unzip the application to any location you like & run the executable (Loki.exe).
@@ -49,9 +49,12 @@ Backups are created in `%LOCALAPPDATA%\TwoThreeSix\Loki\CharacterBackups`
 
 - Improvements to Inventory editor
   - Upgrade / Downgrade
-- Installer
+  - Edit the 'crafted by' tag
+- Auto rename own crafted by tags when renaming character
 - See & Edit player stats, kills, deaths etc
 - World Data management (e.g. trim out bloat from old worlds)
 - More tooltips & in app help
+- Installer
 - Detect game running and warn user (game could save over file at any point)
 - Dark theme to protect sensitive gamer eyes
+- New application icon
