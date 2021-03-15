@@ -13,6 +13,10 @@
         Title="Loki"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Loaded="MainWindow_OnLoaded" Icon="/Resources/loki.ico">
+    <!-- Resources -->
+    <Window.Resources>
+        <loki:InverseBooleanConverter x:Key="InverseBool"/>
+    </Window.Resources>
 
     <!-- Commands -->
     <Window.CommandBindings>
@@ -87,7 +91,7 @@
         </Border>
 
         <!-- Main Tab area -->
-        <TabControl Margin="4">
+        <TabControl Margin="4" IsEnabled="{Binding SaveInProgress, Converter={StaticResource InverseBool}}">
 
             <!-- General -->
             <TabItem Header="General">
