@@ -16,9 +16,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\anvil.png" />
     <None Remove="Resources\calander-16.ico" />
     <None Remove="Resources\clock-16.ico" />
+    <None Remove="Resources\hammer.png" />
     <None Remove="Resources\loki.ico" />
+    <None Remove="Resources\skull.png" />
+    <None Remove="Resources\target.png" />
     <None Remove="Resources\wrench-32.ico" />
   </ItemGroup>
 
@@ -35,9 +39,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\anvil.png" />
     <Resource Include="Resources\calander-16.ico" />
     <Resource Include="Resources\clock-16.ico" />
+    <Resource Include="Resources\hammer.png" />
     <Resource Include="Resources\loki.ico" />
+    <Resource Include="Resources\skull.png" />
+    <Resource Include="Resources\target.png" />
     <Resource Include="Resources\wrench-32.ico" />
   </ItemGroup>
 

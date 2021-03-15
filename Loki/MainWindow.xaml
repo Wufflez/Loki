@@ -272,6 +272,39 @@
 
 
             </TabItem>
+
+            <!-- Player statistics -->
+            <TabItem Header="Stats">
+                <Grid Margin="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Column="0" Grid.Row="0" Source="Resources/target.png"/>
+                    <Image Grid.Column="0" Grid.Row="1" Source="Resources/skull.png"/>
+                    <Image Grid.Column="0" Grid.Row="2" Source="Resources/anvil.png"/>
+                    <Image Grid.Column="0" Grid.Row="3" Source="Resources/hammer.png"/>
+
+                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="4" VerticalAlignment="Center" Height="16">Kills</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="4" VerticalAlignment="Center" Height="16">Deaths</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="4" VerticalAlignment="Center" Height="16">Crafts</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="3" Margin="4" VerticalAlignment="Center" Height="16">Builds</TextBlock>
+
+                    <TextBox MinWidth="50" Grid.Row="0"  Grid.Column="2" VerticalAlignment="Center" Text="{Binding Profile.Stats.Kills}" Height="18"/>
+                    <TextBox MinWidth="50" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="{Binding Profile.Stats.Deaths}" Height="18"/>
+                    <TextBox MinWidth="50" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Text="{Binding Profile.Stats.Crafts}" Height="18"/>
+                    <TextBox MinWidth="50" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Text="{Binding Profile.Stats.Builds}" Height="18"/>
+                </Grid>
+
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
