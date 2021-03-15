@@ -310,7 +310,26 @@
                             </Button>
                         </StackPanel>
                         
-
+                        <!-- Tag in top middle -->
+                        <Image HorizontalAlignment="Center" VerticalAlignment="Top" Margin="6"
+                               Visibility="{Binding Item.HasCrafterTag, Converter={StaticResource BoolToVis}}"
+                               Source="Resources/tag-32.png" Width="24">
+                            <Image.ToolTip>
+                                <StackPanel>
+                                    <TextBlock Foreground="DarkRed" FontWeight="DemiBold" HorizontalAlignment="Center">Crafted By</TextBlock>
+                                    <DockPanel>
+                                        <Image 
+                                            VerticalAlignment="Center"
+                                            Width="16" Source="Resources/viking-24.png" DockPanel.Dock="Left" Margin="8"/>
+                                        <StackPanel>
+                                            <TextBlock FontSize="14" Text="{Binding Item.CrafterName}" />
+                                            <TextBlock Text="{Binding Item.CrafterId, StringFormat='ID: {0}'}"
+                                                       FontSize="8" Foreground="Gray"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </StackPanel>
+                            </Image.ToolTip>
+                        </Image>
 
                     </Grid>
                     

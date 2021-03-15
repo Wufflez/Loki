@@ -22,6 +22,7 @@
     <None Remove="Resources\hammer.png" />
     <None Remove="Resources\loki.ico" />
     <None Remove="Resources\skull.png" />
+    <None Remove="Resources\tag-32.png" />
     <None Remove="Resources\target.png" />
     <None Remove="Resources\viking-24.png" />
     <None Remove="Resources\wrench-32.ico" />
@@ -46,6 +47,7 @@
     <Resource Include="Resources\hammer.png" />
     <Resource Include="Resources\loki.ico" />
     <Resource Include="Resources\skull.png" />
+    <Resource Include="Resources\tag-32.png" />
     <Resource Include="Resources\target.png" />
     <Resource Include="Resources\viking-24.png" />
     <Resource Include="Resources\wrench-32.ico" />

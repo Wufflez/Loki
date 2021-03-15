@@ -46,6 +46,8 @@ namespace Loki
         public long CrafterId { get; }
         public string CrafterName { get; }
 
+        public bool HasCrafterTag => CrafterId != 0;
+
         public double MaxDurability =>
             SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
 

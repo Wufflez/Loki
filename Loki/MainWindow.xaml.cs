@@ -130,35 +130,6 @@ namespace Loki
                     if (makeBackup) 
                         Backup.BackupCharacter(character);
 
-                    // TODO: Add some logging in here so easy to track down what went wrong should this break horribly.
-                    
-                    // WIP:
-                    // TODO: Renaming file - should probably make this a setting or tickbox somewhere
-                    // Using this feature is a bad idea with steam cloud synchronisation that Valheim uses - it will just restore their old character leaading to confusion.
-
-                    /*
-                    // See if we should use a new file path, if the name has changed.
-                    string fileName = Path.GetFileNameWithoutExtension(character.FilePath);
-                    if(fileName != profile.PlayerName)
-                    {
-                        // Check character name isn't dodgy for a filename.
-                        bool dodgyName = Path.GetInvalidFileNameChars()
-                            .Any(invalidChar => profile.PlayerName.Contains(invalidChar));
-
-                        // If it looks OK and doesn't exist, rename old file.
-                        if (!dodgyName)
-                        {
-                            string newFilePath = Path.Join(Path.GetDirectoryName(character.FilePath),
-                                profile.PlayerName + ".fch");
-                            if (!File.Exists(newFilePath))
-                            {
-                                File.Move(character.FilePath, newFilePath);
-                                character.FilePath = newFilePath;
-                            }
-                        }
-                    }
-                   */
-
                     using var fileStream = File.Create(character.FilePath);
 
                     profile.Write(fileStream);
