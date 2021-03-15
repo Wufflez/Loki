@@ -27,7 +27,27 @@
         <!-- Character Selection -->
         <ComboBox DockPanel.Dock="Top" Margin="4" 
                   ItemsSource="{Binding CharacterFiles}"
-                  SelectedItem="{Binding SelectedCharacterFile}" DisplayMemberPath="Name"/>
+                  SelectedItem="{Binding SelectedCharacterFile}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate DataType="loki:CharacterFile">
+                    <DockPanel>
+                        <Image DockPanel.Dock="Left" Source="Resources/viking-24.png" Height="24"/>
+                        <StackPanel>
+                            <TextBlock Name="TxtPlayerName" FontSize="14" FontWeight="DemiBold" Text="{Binding PlayerName}"/>
+                            <TextBlock Name="TxtFilePath" FontSize="8" Foreground="Gray" Text="{Binding FilePath, StringFormat='File: {0}'}"/>
+                            <TextBlock Name="TxtPlayerId" FontSize="8" Foreground="Gray" Text="{Binding PlayerId, StringFormat='ID: {0}'}"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Invalid}" Value="True">
+                            <Setter TargetName="TxtPlayerName" Property="Foreground" Value="DarkRed"/>
+                            <Setter TargetName="TxtFilePath" Property="Foreground" Value="DarkRed"/>
+                            <Setter TargetName="TxtPlayerId" Property="Foreground" Value="DarkRed"/>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
 
         <!-- Revert / Save area -->
