@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -40,7 +40,7 @@ namespace Loki
 
         private int _modelIndex;
         private readonly List<Food> _food = new List<Food>();
-        public List<Skill> Skills { get; } = new List<Skill>();
+        public ObservableCollection<Skill> Skills { get; } = new ObservableCollection<Skill>();
 
         public Inventory Inventory { get; } = new Inventory(8, 4);
 

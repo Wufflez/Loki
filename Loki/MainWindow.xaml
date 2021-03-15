@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:loki="clr-namespace:Loki"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:dd="urn:gong-wpf-dragdrop"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         MinHeight="290" MinWidth="540"
@@ -140,27 +141,36 @@
 
             <!-- Skills -->
             <TabItem Header="Skills">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl ItemsSource="{Binding Profile.Player.Skills}"
-                              HorizontalContentAlignment="Stretch">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate DataType="loki:Skill">
-                                <DockPanel VerticalAlignment="Top" Margin="4,2">
-                                    <TextBlock DockPanel.Dock="Left" Text="{Binding Type, FallbackValue='skill_type'}"
-                                           VerticalAlignment="Center" Width="80" />
-                                    <TextBlock DockPanel.Dock="Right" Text="{Binding Level, StringFormat='0'}"
-                                           VerticalAlignment="Center" Width="25" TextAlignment="Right" />
-                                    <Slider Minimum="0" Maximum="100" TickFrequency="1" Value="{Binding Level}"
-                                        VerticalAlignment="Center" />
-                                </DockPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Bottom" Foreground="Gray">NOTE: You can click and drag to re-order the skills</TextBlock>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl 
+                        dd:DragDrop.IsDragSource="True"
+                        dd:DragDrop.IsDropTarget="True"
+                        ItemsSource="{Binding Profile.Player.Skills}"
+                        HorizontalContentAlignment="Stretch">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="loki:Skill">
+                                    <Border Background="Transparent">
+                                        <DockPanel VerticalAlignment="Top" Margin="4,2">
+                                            <TextBlock DockPanel.Dock="Left"
+                                                   Text="{Binding Type, FallbackValue='skill_type'}"
+                                                   VerticalAlignment="Center" Width="80" />
+                                            <TextBlock DockPanel.Dock="Right" Text="{Binding Level, StringFormat='0'}"
+                                                   VerticalAlignment="Center" Width="25" TextAlignment="Right" />
+                                            <Slider Minimum="0" Maximum="100" TickFrequency="1" Value="{Binding Level}"
+                                                VerticalAlignment="Center" />
+                                        </DockPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </DockPanel>
             </TabItem>
 
             <!-- Inventory Editor-->
-            <TabItem Header="Inventory" Height="20" VerticalAlignment="Top">
+            <TabItem Header="Inventory">
 
                 <!-- Todo: Tidy up this mess lol. -->
                 <DockPanel>
