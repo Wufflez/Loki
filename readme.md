@@ -8,12 +8,15 @@ It is currently in a very early pre-release state and therefore use only at your
 
 - Detects game characters for easy selection
 - Edit character name
+  - Auto updates 'crafted by' on items in inventory when saving
 - Edit beard style
 - Edit hair colour
 - Edit hair style
 - Edit skin colour
 - Make skin glow like a God (experimental)
 - Edit skill values
+- Reorder skills
+- Edit player statistics, e.g. kills, deaths etc.
 - Use 'non standard' hair/beard styles
 - Simple Inventory editor (WIP)
   - Delete items
@@ -50,8 +53,6 @@ Backups are created in `%LOCALAPPDATA%\TwoThreeSix\Loki\CharacterBackups`
 - Improvements to Inventory editor
   - Upgrade / Downgrade
   - Edit the 'crafted by' tag
-- Auto rename own crafted by tags when renaming character
-- See & Edit player stats, kills, deaths etc
 - World Data management (e.g. trim out bloat from old worlds)
 - More tooltips & in app help
 - Installer
