@@ -44,7 +44,7 @@ namespace Loki
         public int Quality { get; }
         public int Variant { get; }
         public long CrafterId { get; }
-        public string CrafterName { get; }
+        public string CrafterName { get; set; }
 
         public bool HasCrafterTag => CrafterId != 0;
 

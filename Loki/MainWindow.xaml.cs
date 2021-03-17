@@ -102,6 +102,7 @@ namespace Loki
             try
             {
                 Profile = await Task.Run(() => PlayerProfile.Read(File.OpenRead(character.FilePath)));
+                character.PlayerName = Profile.PlayerName;
             }
             catch (Exception ex)
             {
@@ -127,6 +128,16 @@ namespace Loki
 
                 await Task.Run(() =>
                 {
+                    
+                    // Re-Tag any items with new character name if needed.
+                    foreach (var slot in profile.Player.Inventory.Slots)
+                    {
+                        if (slot.Item != null && slot.Item.CrafterId == profile.PlayerId)
+                        {
+                            slot.Item.CrafterName = profile.PlayerName;
+                        }
+                    }
+                    
                     if (makeBackup) 
                         Backup.BackupCharacter(character);
 
