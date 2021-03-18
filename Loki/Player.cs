@@ -56,6 +56,12 @@ namespace Loki
             set => _hair = value.Code;
         }
 
+        public Model Model
+        {
+            get => Model.FromIndex(_modelIndex);
+            set => _modelIndex = value.Index;
+        }
+
         public Color HairColour
         {
             get => Color.FromScRgb(1.0f, _hairColour.X, _hairColour.Y, _hairColour.Z);

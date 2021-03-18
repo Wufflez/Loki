@@ -111,6 +111,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <!-- Player Name -->
@@ -160,6 +161,14 @@
                     <TextBlock 
                         FontStyle="Italic" Foreground="Gray"
                         Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" Margin="6" Text="Experimental! Scales colour for godly radiance"/>
+
+                    <!-- Player model selection -->
+                    <TextBlock Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" Margin="6">Model</TextBlock>
+                    <ComboBox Grid.Column="1" Grid.Row="6" Width="120"
+                              HorizontalAlignment="Left" VerticalAlignment="Center"
+                              ItemsSource="{x:Static loki:Model.Models}"
+                              SelectedItem="{Binding Profile.Player.Model}"
+                              DisplayMemberPath="DisplayName" />
                 </Grid>
             </TabItem>
 
