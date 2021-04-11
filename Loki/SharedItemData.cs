@@ -47,163 +47,163 @@ namespace Loki
             ["Amber"] = new SharedItemData
             {
                 ItemName = "Amber", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Amber",
+                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = Loki.Properties.Resources.Amber,
                 MaxQuality = 1, ItemType = (ItemType)1,
             },
             ["AmberPearl"] = new SharedItemData
             {
                 ItemName = "AmberPearl", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = "Amber pearl",
+                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = Loki.Properties.Resources.Amber_pearl,
                 MaxQuality = 1, ItemType = (ItemType)1,
             },
             ["AncientSeed"] = new SharedItemData
             {
                 ItemName = "AncientSeed", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = "Ancient seed",
+                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = Loki.Properties.Resources.Ancient_seed,
                 MaxQuality = 1, ItemType = (ItemType)1,
             },
             ["ArmorBronzeChest"] = new SharedItemData
             {
                 ItemName = "ArmorBronzeChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Bronze plate cuirass",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Bronze_plate_cuirass,
                 MaxQuality = 4, ItemType = (ItemType)7,
             },
             ["ArmorBronzeLegs"] = new SharedItemData
             {
                 ItemName = "ArmorBronzeLegs", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Bronze plate leggings",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Bronze_plate_leggings,
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
             ["ArmorIronChest"] = new SharedItemData
             {
                 ItemName = "ArmorIronChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Iron scale mail",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Iron_scale_mail,
                 MaxQuality = 4, ItemType = (ItemType)7,
             },
             ["ArmorIronLegs"] = new SharedItemData
             {
                 ItemName = "ArmorIronLegs", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Iron greaves",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Iron_greaves,
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
             ["ArmorLeatherChest"] = new SharedItemData
             {
                 ItemName = "ArmorLeatherChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 400,
-                DurabilityPerLevel = 100, MaxStack = 1, DisplayName = "Leather tunic",
+                DurabilityPerLevel = 100, MaxStack = 1, DisplayName = Loki.Properties.Resources.Leather_tunic,
                 MaxQuality = 4, ItemType = (ItemType)7,
             },
             ["ArmorLeatherLegs"] = new SharedItemData
             {
                 ItemName = "ArmorLeatherLegs", IsTeleportable = true, UsesDurability = true, MaxDurability = 400,
-                DurabilityPerLevel = 100, MaxStack = 1, DisplayName = "Leather pants",
+                DurabilityPerLevel = 100, MaxStack = 1, DisplayName = Loki.Properties.Resources.Leather_pants,
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
             ["ArmorPaddedCuirass"] = new SharedItemData
             {
                 ItemName = "ArmorPaddedCuirass", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Padded cuirass",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Padded_cuirass,
                 MaxQuality = 4, ItemType = (ItemType)7,
             },
             ["ArmorPaddedGreaves"] = new SharedItemData
             {
                 ItemName = "ArmorPaddedGreaves", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Padded greaves",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Padded_greaves,
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
             ["ArmorRagsChest"] = new SharedItemData
             {
                 ItemName = "ArmorRagsChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 200,
-                DurabilityPerLevel = 50, MaxStack = 1, DisplayName = "Rag tunic",
+                DurabilityPerLevel = 50, MaxStack = 1, DisplayName = Loki.Properties.Resources.Rag_tunic,
                 MaxQuality = 2, ItemType = (ItemType)7,
             },
             ["ArmorRagsLegs"] = new SharedItemData
             {
                 ItemName = "ArmorRagsLegs", IsTeleportable = true, UsesDurability = true, MaxDurability = 200,
-                DurabilityPerLevel = 50, MaxStack = 1, DisplayName = "Rag pants",
+                DurabilityPerLevel = 50, MaxStack = 1, DisplayName = Loki.Properties.Resources.Rag_pants,
                 MaxQuality = 2, ItemType = (ItemType)11,
             },
             ["ArmorTrollLeatherChest"] = new SharedItemData
             {
                 ItemName = "ArmorTrollLeatherChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 500,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Troll leather tunic",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Troll_leather_tunic,
                 MaxQuality = 4, ItemType = (ItemType)7,
             },
             ["ArmorTrollLeatherLegs"] = new SharedItemData
             {
                 ItemName = "ArmorTrollLeatherLegs", IsTeleportable = true, UsesDurability = true, MaxDurability = 500,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Troll leather pants",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Troll_leather_pants,
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
             ["ArmorWolfChest"] = new SharedItemData
             {
                 ItemName = "ArmorWolfChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Wolf armor chest",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Wolf_armor_chest,
                 MaxQuality = 4, ItemType = (ItemType)7,
             },
             ["ArmorWolfLegs"] = new SharedItemData
             {
                 ItemName = "ArmorWolfLegs", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
-                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Wolf armor legs",
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = Loki.Properties.Resources.Wolf_armor_legs,
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
             ["ArrowBronze"] = new SharedItemData
             {
                 ItemName = "ArrowBronze", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Bronzehead arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Bronzehead_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowFire"] = new SharedItemData
             {
                 ItemName = "ArrowFire", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Fire arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Fire_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowFlint"] = new SharedItemData
             {
                 ItemName = "ArrowFlint", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Flinthead arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Flinthead_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowFrost"] = new SharedItemData
             {
                 ItemName = "ArrowFrost", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Frost arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Frost_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowIron"] = new SharedItemData
             {
                 ItemName = "ArrowIron", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Ironhead arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Ironhead_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowNeedle"] = new SharedItemData
             {
                 ItemName = "ArrowNeedle", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Needle arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Needle_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowObsidian"] = new SharedItemData
             {
                 ItemName = "ArrowObsidian", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Obsidian arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Obsidian_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowPoison"] = new SharedItemData
             {
                 ItemName = "ArrowPoison", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Poison arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Poison_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowSilver"] = new SharedItemData
             {
                 ItemName = "ArrowSilver", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Silver arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Silver_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["ArrowWood"] = new SharedItemData
             {
                 ItemName = "ArrowWood", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = "Wood arrow",
+                DurabilityPerLevel = 50, MaxStack = 100, DisplayName = Loki.Properties.Resources.Wood_arrow,
                 MaxQuality = 1, ItemType = (ItemType)9,
             },
             ["AtgeirBlackmetal"] = new SharedItemData

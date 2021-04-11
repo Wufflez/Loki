@@ -31,8 +31,8 @@ namespace Loki
         /// </summary>
         public static Model[] Models =
         {
-            new Model {Index = 0, DisplayName = "Male"},
-            new Model {Index = 1, DisplayName = "Female"},
+            new Model {Index = 0, DisplayName = Loki.Properties.Resources.Male},
+            new Model {Index = 1, DisplayName = Loki.Properties.Resources.Female},
         };
     }
 }

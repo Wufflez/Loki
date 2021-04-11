@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Amber" xml:space="preserve">
+    <value>호박석</value>
+  </data>
+  <data name="Amber pearl" xml:space="preserve">
+    <value>호박석 진주</value>
+  </data>
+  <data name="Ammo" xml:space="preserve">
+    <value>탄약</value>
+  </data>
+  <data name="Ancient seed" xml:space="preserve">
+    <value>고대 씨앗</value>
+  </data>
+  <data name="Attach Atgeir" xml:space="preserve">
+    <value>Attach 아트가이어</value>
+  </data>
+  <data name="Backup Character" xml:space="preserve">
+    <value>캐릭터 백업</value>
+  </data>
+  <data name="Backup Restore" xml:space="preserve">
+    <value>백업 복원</value>
+  </data>
+  <data name="Beard" xml:space="preserve">
+    <value>수염</value>
+  </data>
+  <data name="Blob hair" xml:space="preserve">
+    <value>블롭 머리</value>
+  </data>
+  <data name="Bow" xml:space="preserve">
+    <value>활</value>
+  </data>
+  <data name="Braided 1" xml:space="preserve">
+    <value>땋은머리 1</value>
+  </data>
+  <data name="Braided 2" xml:space="preserve">
+    <value>땋은머리 2</value>
+  </data>
+  <data name="Braided 3" xml:space="preserve">
+    <value>땋은머리 3</value>
+  </data>
+  <data name="Braided 4" xml:space="preserve">
+    <value>땋은머리 4</value>
+  </data>
+  <data name="Bronze plate cuirass" xml:space="preserve">
+    <value>청동 판금 흉갑</value>
+  </data>
+  <data name="Bronze plate leggings" xml:space="preserve">
+    <value>청동 판금 각반</value>
+  </data>
+  <data name="Bronzehead arrow" xml:space="preserve">
+    <value>청동 화살</value>
+  </data>
+  <data name="Builds" xml:space="preserve">
+    <value>건축</value>
+  </data>
+  <data name="B_Braided 1" xml:space="preserve">
+    <value>땋음 1</value>
+  </data>
+  <data name="B_Braided 2" xml:space="preserve">
+    <value>땋음 2</value>
+  </data>
+  <data name="B_Braided 3" xml:space="preserve">
+    <value>땋음 3</value>
+  </data>
+  <data name="B_Braided 4" xml:space="preserve">
+    <value>땋음 4</value>
+  </data>
+  <data name="B_Long 1" xml:space="preserve">
+    <value>긺 1</value>
+  </data>
+  <data name="B_Long 2" xml:space="preserve">
+    <value>긺 2</value>
+  </data>
+  <data name="B_No beard" xml:space="preserve">
+    <value>수염 없음</value>
+  </data>
+  <data name="B_Short 1" xml:space="preserve">
+    <value>짧음 1</value>
+  </data>
+  <data name="B_Short 2" xml:space="preserve">
+    <value>짧음 2</value>
+  </data>
+  <data name="B_Short 3" xml:space="preserve">
+    <value>짧음 3</value>
+  </data>
+  <data name="B_Thick 1" xml:space="preserve">
+    <value>두꺼운 1</value>
+  </data>
+  <data name="Chest" xml:space="preserve">
+    <value>상자</value>
+  </data>
+  <data name="Consumable" xml:space="preserve">
+    <value>소모품</value>
+  </data>
+  <data name="Crafts" xml:space="preserve">
+    <value>제작</value>
+  </data>
+  <data name="Customisation" xml:space="preserve">
+    <value>커스터마이징</value>
+  </data>
+  <data name="Deaths" xml:space="preserve">
+    <value>죽음</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>여성</value>
+  </data>
+  <data name="Fire arrow" xml:space="preserve">
+    <value>불 화살</value>
+  </data>
+  <data name="Flinthead arrow" xml:space="preserve">
+    <value>부싯돌 화살</value>
+  </data>
+  <data name="Frost arrow" xml:space="preserve">
+    <value>냉기 화살</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>일반</value>
+  </data>
+  <data name="Hair" xml:space="preserve">
+    <value>머리</value>
+  </data>
+  <data name="Hair Colour" xml:space="preserve">
+    <value>머리색</value>
+  </data>
+  <data name="Hands" xml:space="preserve">
+    <value>손</value>
+  </data>
+  <data name="Helmet" xml:space="preserve">
+    <value>투구</value>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>인벤토리</value>
+  </data>
+  <data name="Iron greaves" xml:space="preserve">
+    <value>철 정강이갑옷</value>
+  </data>
+  <data name="Iron scale mail" xml:space="preserve">
+    <value>철 비늘 갑옷</value>
+  </data>
+  <data name="Ironhead arrow" xml:space="preserve">
+    <value>철 화살</value>
+  </data>
+  <data name="Kills" xml:space="preserve">
+    <value>처치</value>
+  </data>
+  <data name="Leather pants" xml:space="preserve">
+    <value>가죽 바지</value>
+  </data>
+  <data name="Leather tunic" xml:space="preserve">
+    <value>가죽 튜닉</value>
+  </data>
+  <data name="Legs" xml:space="preserve">
+    <value>다리</value>
+  </data>
+  <data name="Long 1" xml:space="preserve">
+    <value>긴머리 1</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>남성</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>재료</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>여러가지</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>모델</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="Needle arrow" xml:space="preserve">
+    <value>바늘 화살</value>
+  </data>
+  <data name="No hair" xml:space="preserve">
+    <value>대머리</value>
+  </data>
+  <data name="Obsidian arrow" xml:space="preserve">
+    <value>흑요석 화살</value>
+  </data>
+  <data name="One Handed Weapon" xml:space="preserve">
+    <value>한손 무기</value>
+  </data>
+  <data name="Padded cuirass" xml:space="preserve">
+    <value>누비 흉갑</value>
+  </data>
+  <data name="Padded greaves" xml:space="preserve">
+    <value>누비 각반</value>
+  </data>
+  <data name="Poison arrow" xml:space="preserve">
+    <value>독 화살</value>
+  </data>
+  <data name="Ponytail 1" xml:space="preserve">
+    <value>포니테일 1</value>
+  </data>
+  <data name="Ponytail 2" xml:space="preserve">
+    <value>포니테일 2</value>
+  </data>
+  <data name="Ponytail 3" xml:space="preserve">
+    <value>포니테일 3</value>
+  </data>
+  <data name="Ponytail 4" xml:space="preserve">
+    <value>포니테일 4</value>
+  </data>
+  <data name="Rag pants" xml:space="preserve">
+    <value>누더기 바지</value>
+  </data>
+  <data name="Rag tunic" xml:space="preserve">
+    <value>누더기 튜닉</value>
+  </data>
+  <data name="Revert" xml:space="preserve">
+    <value>되돌리기</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>저장</value>
+  </data>
+  <data name="Shield" xml:space="preserve">
+    <value>방패</value>
+  </data>
+  <data name="Short 1" xml:space="preserve">
+    <value>단발 1</value>
+  </data>
+  <data name="Short 2" xml:space="preserve">
+    <value>단발 2</value>
+  </data>
+  <data name="Shoulder" xml:space="preserve">
+    <value>어깨</value>
+  </data>
+  <data name="Side Swept 1" xml:space="preserve">
+    <value>사이드 스웹트 1</value>
+  </data>
+  <data name="Side Swept 2" xml:space="preserve">
+    <value>사이드 스웹트 2</value>
+  </data>
+  <data name="Side Swept 3" xml:space="preserve">
+    <value>사이드 스웹트 3</value>
+  </data>
+  <data name="Silver arrow" xml:space="preserve">
+    <value>은 화살</value>
+  </data>
+  <data name="Skills" xml:space="preserve">
+    <value>기술</value>
+  </data>
+  <data name="Skin Colour" xml:space="preserve">
+    <value>피부색</value>
+  </data>
+  <data name="Skin Glow" xml:space="preserve">
+    <value>피부 밝기</value>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>통계</value>
+  </data>
+  <data name="Tool" xml:space="preserve">
+    <value>도구</value>
+  </data>
+  <data name="Torch" xml:space="preserve">
+    <value>횃불</value>
+  </data>
+  <data name="Troll leather pants" xml:space="preserve">
+    <value>트롤 가죽 바지</value>
+  </data>
+  <data name="Troll leather tunic" xml:space="preserve">
+    <value>트롤 가죽 튜닉</value>
+  </data>
+  <data name="Trophy" xml:space="preserve">
+    <value>트로피</value>
+  </data>
+  <data name="Two Handed Weapon" xml:space="preserve">
+    <value>두손 무기</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>알 수 없음</value>
+  </data>
+  <data name="Utility" xml:space="preserve">
+    <value>유틸리티</value>
+  </data>
+  <data name="Wolf armor chest" xml:space="preserve">
+    <value>늑대 흉갑 방어구</value>
+  </data>
+  <data name="Wolf armor legs" xml:space="preserve">
+    <value>늑대 가죽 바지</value>
+  </data>
+  <data name="Wood arrow" xml:space="preserve">
+    <value>나무 화살</value>
+  </data>
+</root>

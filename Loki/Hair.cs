@@ -7,22 +7,22 @@ namespace Loki
     {
         private static readonly Hair[] SensibleHairs =
         {
-            new Hair("No hair", "HairNone"),
-            new Hair("Braided 1", "Hair3"),
-            new Hair("Braided 2", "Hair11"),
-            new Hair("Braided 3", "Hair12"),
-            new Hair("Braided 4", "Hair6"),
-            new Hair("Long 1", "Hair1"),
-            new Hair("Ponytail 1", "Hair2"),
-            new Hair("Ponytail 2", "Hair4"),
-            new Hair("Ponytail 3", "Hair7"),
-            new Hair("Ponytail 4", "Hair5"),
-            new Hair("Short 1", "Hair8"),
-            new Hair("Short 2", "Hair13"),
-            new Hair("Side Swept 1", "Hair9"),
-            new Hair("Side Swept 2", "Hair10"),
-            new Hair("Side Swept 3", "Hair14"),
-            new Hair("Blob hair", "TrophyBlob"),
+            new Hair(Loki.Properties.Resources.No_hair, "HairNone"),
+            new Hair(Loki.Properties.Resources.Braided_1, "Hair3"),
+            new Hair(Loki.Properties.Resources.Braided_2, "Hair11"),
+            new Hair(Loki.Properties.Resources.Braided_3, "Hair12"),
+            new Hair(Loki.Properties.Resources.Braided_4, "Hair6"),
+            new Hair(Loki.Properties.Resources.Long_1, "Hair1"),
+            new Hair(Loki.Properties.Resources.Ponytail_1, "Hair2"),
+            new Hair(Loki.Properties.Resources.Ponytail_2, "Hair4"),
+            new Hair(Loki.Properties.Resources.Ponytail_3, "Hair7"),
+            new Hair(Loki.Properties.Resources.Ponytail_4, "Hair5"),
+            new Hair(Loki.Properties.Resources.Short_1, "Hair8"),
+            new Hair(Loki.Properties.Resources.Short_2, "Hair13"),
+            new Hair(Loki.Properties.Resources.Side_Swept_1, "Hair9"),
+            new Hair(Loki.Properties.Resources.Side_Swept_2, "Hair10"),
+            new Hair(Loki.Properties.Resources.Side_Swept_3, "Hair14"),
+            new Hair(Loki.Properties.Resources.Blob_hair, "TrophyBlob"),
         };
 
         private static readonly IEnumerable<Hair> SillyHairs =
@@ -34,7 +34,7 @@ namespace Loki
         public string DisplayName { get; }
         public string Code { get; }
 
-        public static Hair Default = new Hair("No hair", "HairNone");
+        public static Hair Default = new Hair(Loki.Properties.Resources.No_hair, "HairNone");
 
         public Hair(string name, string code)
         {
