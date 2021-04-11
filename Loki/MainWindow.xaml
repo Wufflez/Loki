@@ -186,7 +186,7 @@
                                     <Border Background="Transparent">
                                         <DockPanel VerticalAlignment="Top" Margin="4,2">
                                             <TextBlock DockPanel.Dock="Left"
-                                                   Text="{Binding Type, FallbackValue='skill_type'}"
+                                                   Text="{Binding SkillName, FallbackValue='skill_type'}"
                                                    VerticalAlignment="Center" Width="80" />
                                             <TextBlock DockPanel.Dock="Right" Text="{Binding Level, StringFormat='0'}"
                                                    VerticalAlignment="Center" Width="25" TextAlignment="Right" />
