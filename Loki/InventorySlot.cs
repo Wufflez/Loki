@@ -90,6 +90,8 @@ namespace Loki
                 _item = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(IsEmpty));
+                QualityUp.OnCanExecuteChanged();
+                QualityDown.OnCanExecuteChanged();
             }
         }
 
