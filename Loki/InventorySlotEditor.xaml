@@ -175,6 +175,9 @@
                     <DataTrigger Binding="{Binding IsEmpty}" Value="True">
                         <Setter Property="Background" Value="Gray"/>
                     </DataTrigger>
+                    <DataTrigger Binding="{Binding Item.Equiped}" Value="True">
+                        <Setter Property="Background" Value="#FF7D8989"/>
+                    </DataTrigger>
                 </Style.Triggers>
             </Style>
         </Border.Style>
