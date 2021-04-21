@@ -6,6 +6,7 @@
         xmlns:loki="clr-namespace:Loki"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:dd="urn:gong-wpf-dragdrop"
+        xmlns:prop="clr-namespace:Loki.Properties"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         MinHeight="290" MinWidth="540"
@@ -61,21 +62,19 @@
 
                     <Button DockPanel.Dock="Right" Width="96" Height="26" Margin="2,0,0,0"
                         Command="{x:Static loki:Commands.RevertCharacter}"
-                        ToolTip="Re-loads the file, reverting any unsaved changes">Revert</Button>
+                        ToolTip="Re-loads the file, reverting any unsaved changes" Content="{x:Static prop:Resources.Revert}"/>
 
                     <Button DockPanel.Dock="Right" Width="96" Height="26" Margin="2,0" 
                         Command="{x:Static loki:Commands.SaveCharacter}"
-                        ToolTip="Saves all changes to the character file">Save</Button>
+                        ToolTip="Saves all changes to the character file" Content="{x:Static prop:Resources.Save}"/>
 
                     <CheckBox DockPanel.Dock="Right" VerticalAlignment="Center" Margin="4,0" 
                           ToolTip="If checked, will cause a backup to be automatically created upon saving"
-                          IsChecked="{Binding CreateBackup}">
-                        Backup Character
-                    </CheckBox>
+                          IsChecked="{Binding CreateBackup}" Content="{x:Static prop:Resources.Backup_Character}"/>
 
                     <Button DockPanel.Dock="Right" Height="26" Margin="2,0" Padding="32,0"
                         ToolTip="Select a backup to restore the character from"
-                        Command="{x:Static loki:Commands.RestoreCharacter}">Backup Restore</Button>
+                        Command="{x:Static loki:Commands.RestoreCharacter}" Content="{x:Static prop:Resources.Backup_Restore}"/>
 
                     <Label DockPanel.Dock="Left">Created by Wuffles</Label>
                 </DockPanel>
@@ -94,7 +93,7 @@
         <TabControl Margin="4" IsEnabled="{Binding SaveInProgress, Converter={StaticResource InverseBool}}">
 
             <!-- General -->
-            <TabItem Header="General">
+            <TabItem Header="{x:Static prop:Resources.General}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -115,22 +114,22 @@
                     </Grid.RowDefinitions>
 
                     <!-- Player Name -->
-                    <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Margin="6">Name</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Margin="6" Text="{x:Static prop:Resources.Name}"/>
                     <TextBox Grid.Column="1" Grid.Row="0" MinWidth="150"  Height="22" 
                              TextAlignment="Left" VerticalContentAlignment="Center"
                              VerticalAlignment="Center" HorizontalAlignment="Left" 
                              Text="{Binding Profile.PlayerName}" />
 
                     <!-- Beard Selection -->
-                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="6">Beard</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="6" Text="{x:Static prop:Resources.Beard}"/>
                     <ComboBox Grid.Column="1" Grid.Row="1" Width="120"
                               HorizontalAlignment="Left" VerticalAlignment="Center"
                               ItemsSource="{x:Static loki:Beard.AvailableBeards}"
                               SelectedItem="{Binding Profile.Player.Beard}"
                               DisplayMemberPath="DisplayName" />
 
-                    <!-- Beard Selection -->
-                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Margin="6">Hair</TextBlock>
+                    <!-- Hair Selection -->
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Margin="6" Text="{x:Static prop:Resources.Hair}"/>
                     <ComboBox Grid.Column="1" Grid.Row="2" Width="120"
                               HorizontalAlignment="Left" VerticalAlignment="Center"
                               ItemsSource="{x:Static loki:Hair.AvailableHairs}"
@@ -138,7 +137,7 @@
                               DisplayMemberPath="DisplayName" />
 
                     <!-- Hair Colour-->
-                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Margin="6">Hair Colour</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" Margin="6" Text="{x:Static prop:Resources.Hair_Colour}"/>
                     <xctk:ColorPicker Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Width="100" HorizontalAlignment="Left"
                                       UsingAlphaChannel="False" ShowStandardColors="False"
                                       SelectedColor="{Binding Profile.Player.HairColour}"/>
@@ -146,7 +145,7 @@
                                Text="{Binding Profile.Player.RawHairRgb}" Foreground="Gray"/>
 
                     <!-- Skin Colour -->
-                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Margin="6">Skin Colour</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Margin="6" Text="{x:Static prop:Resources.Skin_Colour}"/>
                     <xctk:ColorPicker Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Width="100" HorizontalAlignment="Left"
                                       UsingAlphaChannel="False" ShowStandardColors="False"
                                       SelectedColor="{Binding Profile.Player.SkinColour}"/>
@@ -154,7 +153,7 @@
                                Text="{Binding Profile.Player.RawSkinRgb}" Foreground="Gray"/>
 
                     <!-- Experimental Skin Colour overdrive for radiant God mode -->
-                    <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" Margin="6">Skin Glow</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" Margin="6" Text="{x:Static prop:Resources.Skin_Glow}"/>
                     <Slider Grid.Column="1" Grid.Row="5" Minimum="1" Maximum="50" 
                             VerticalAlignment="Center" Value="{Binding Profile.Player.SkinGlow}" />
 
@@ -163,7 +162,7 @@
                         Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" Margin="6" Text="Experimental! Scales colour for godly radiance"/>
 
                     <!-- Player model selection -->
-                    <TextBlock Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" Margin="6">Model</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" Margin="6" Text="{x:Static prop:Resources.Model}"/>
                     <ComboBox Grid.Column="1" Grid.Row="6" Width="120"
                               HorizontalAlignment="Left" VerticalAlignment="Center"
                               ItemsSource="{x:Static loki:Model.Models}"
@@ -173,7 +172,7 @@
             </TabItem>
 
             <!-- Skills -->
-            <TabItem Header="Skills">
+            <TabItem Header="{x:Static prop:Resources.Skills}">
                 <DockPanel>
                     <TextBlock DockPanel.Dock="Bottom" Foreground="Gray">NOTE: You can click and drag to re-order the skills</TextBlock>
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -187,7 +186,7 @@
                                     <Border Background="Transparent">
                                         <DockPanel VerticalAlignment="Top" Margin="4,2">
                                             <TextBlock DockPanel.Dock="Left"
-                                                   Text="{Binding Type, FallbackValue='skill_type'}"
+                                                   Text="{Binding SkillName, FallbackValue='skill_type'}"
                                                    VerticalAlignment="Center" Width="80" />
                                             <TextBlock DockPanel.Dock="Right" Text="{Binding Level, StringFormat='0'}"
                                                    VerticalAlignment="Center" Width="25" TextAlignment="Right" />
@@ -203,7 +202,7 @@
             </TabItem>
 
             <!-- Inventory Editor-->
-            <TabItem Header="Inventory">
+            <TabItem Header="{x:Static prop:Resources.Inventory}">
 
                 <!-- Todo: Tidy up this mess lol. -->
                 <DockPanel>
@@ -307,7 +306,7 @@
             </TabItem>
 
             <!-- Player statistics -->
-            <TabItem Header="Stats">
+            <TabItem Header="{x:Static prop:Resources.Stats}">
                 <Grid Margin="6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="16"/>
@@ -326,10 +325,10 @@
                     <Image Grid.Column="0" Grid.Row="2" Source="Resources/anvil.png"/>
                     <Image Grid.Column="0" Grid.Row="3" Source="Resources/hammer.png"/>
 
-                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="4" VerticalAlignment="Center" Height="16">Kills</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="4" VerticalAlignment="Center" Height="16">Deaths</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="4" VerticalAlignment="Center" Height="16">Crafts</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="3" Margin="4" VerticalAlignment="Center" Height="16">Builds</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="4" VerticalAlignment="Center" Height="16" Text="{x:Static prop:Resources.Kills}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="4" VerticalAlignment="Center" Height="16" Text="{x:Static prop:Resources.Deaths}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="4" VerticalAlignment="Center" Height="16" Text="{x:Static prop:Resources.Crafts}"/>
+                    <TextBlock Grid.Column="1" Grid.Row="3" Margin="4" VerticalAlignment="Center" Height="16" Text="{x:Static prop:Resources.Builds}"/>
 
                     <TextBox MinWidth="50" Grid.Row="0"  Grid.Column="2" VerticalAlignment="Center" Text="{Binding Profile.Stats.Kills}" Height="18"/>
                     <TextBox MinWidth="50" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Text="{Binding Profile.Stats.Deaths}" Height="18"/>

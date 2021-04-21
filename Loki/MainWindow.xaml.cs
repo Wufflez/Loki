@@ -22,6 +22,8 @@ namespace Loki
             InitializeComponent();
         }
 
+        public static PlayerProfile selectedPlayerProfile = null;
+
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             var version = Assembly.GetExecutingAssembly().GetName().Version;
@@ -103,6 +105,7 @@ namespace Loki
             {
                 Profile = await Task.Run(() => PlayerProfile.Read(File.OpenRead(character.FilePath)));
                 character.PlayerName = Profile.PlayerName;
+                selectedPlayerProfile = Profile;
             }
             catch (Exception ex)
             {

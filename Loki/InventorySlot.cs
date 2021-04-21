@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -15,6 +16,9 @@ namespace Loki
             Position = position;
             RepairItem = new RelayCommand(RepairExecuted, RepairCanExecute);
             DeleteItem = new RelayCommand(_ => Item = null);
+            QualityUp = new RelayCommand(QualityUpExecuted, QualityUpCanExecute);
+            QualityDown = new RelayCommand(QualityDownExecuted, QualityDownCanExecute);
+            ToggleCrafter = new RelayCommand(ToggleCrafterExecuted);
             if (position.Y == 0) QuickSlotNumber = position.X + 1;
         }
 
@@ -25,6 +29,40 @@ namespace Loki
         public RelayCommand DeleteItem { get; }
 
         public RelayCommand RepairItem { get; }
+
+        public RelayCommand QualityUp { get; }
+
+        public RelayCommand QualityDown { get; }
+
+        public RelayCommand ToggleCrafter { get; }
+
+        private bool QualityUpCanExecute(object _)
+        {
+            return Item != null && Item.HasQualityLevels && Item.Quality < Item.SharedData.MaxQuality;
+        }
+
+        private void QualityUpExecuted(object _)
+        {
+            Item.Quality = Item.Quality + 1;
+            Item.MaxDurability = 1; // Force-recalculating max durability
+            RepairExecuted(this);
+            QualityUp.OnCanExecuteChanged();
+            QualityDown.OnCanExecuteChanged();
+        }
+
+        private bool QualityDownCanExecute(object _)
+        {
+            return Item != null && Item.HasQualityLevels && Item.Quality > 1;
+        }
+
+        private void QualityDownExecuted(object _)
+        {
+            Item.Quality = Item.Quality - 1;
+            Item.MaxDurability = 1; // Force-recalculating max durability
+            RepairExecuted(this);
+            QualityUp.OnCanExecuteChanged();
+            QualityDown.OnCanExecuteChanged();
+        }
 
         private bool RepairCanExecute(object _)
         {
@@ -37,6 +75,12 @@ namespace Loki
             RepairItem.OnCanExecuteChanged();
         }
 
+        private void ToggleCrafterExecuted(object _)
+        {
+            Item.CrafterName = Item.CrafterId == 0 ? MainWindow.selectedPlayerProfile.PlayerName : "";
+            Item.CrafterId = Item.CrafterId == 0 ? MainWindow.selectedPlayerProfile.PlayerId : 0;
+        }
+
         public Item Item
         {
             get => _item;
@@ -46,6 +90,8 @@ namespace Loki
                 _item = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(IsEmpty));
+                QualityUp.OnCanExecuteChanged();
+                QualityDown.OnCanExecuteChanged();
             }
         }
 

@@ -24,7 +24,7 @@ namespace Loki
                 if (this.DataContext is InventorySlot slot)
                 {
                     slot.Item = new Item(itemData.ItemName, itemData.MaxStack, (float)itemData.MaxDurability, slot.Position,
-                        false, 1, 0, 0, "Loki");
+                        false, 1, 0, 0, ""); ;
                 }
             }
         }

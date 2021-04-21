@@ -23,6 +23,8 @@ It is currently in a very early pre-release state and therefore use only at your
   - Add new items from palette
   - Edit stack size
   - Repair damaged items
+  - Upgrade / Downgrade items quality
+  - Set / Remove the 'crafted by' tag
 - Backup System
   - Automatic backup created before changes are saved
   - Easy Backup Restore UI to fix mistakes
@@ -50,9 +52,6 @@ Backups are created in `%LOCALAPPDATA%\TwoThreeSix\Loki\CharacterBackups`
 
 ## Coming Next
 
-- Improvements to Inventory editor
-  - Upgrade / Downgrade
-  - Edit the 'crafted by' tag
 - World Data management (e.g. trim out bloat from old worlds)
 - More tooltips & in app help
 - Installer

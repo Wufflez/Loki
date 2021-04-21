@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Amber" xml:space="preserve">
+    <value>Amber</value>
+  </data>
+  <data name="Amber pearl" xml:space="preserve">
+    <value>Amber pearl</value>
+  </data>
+  <data name="Ammo" xml:space="preserve">
+    <value>Ammo</value>
+  </data>
+  <data name="Ancient seed" xml:space="preserve">
+    <value>Ancient seed</value>
+  </data>
+  <data name="Attach Atgeir" xml:space="preserve">
+    <value>Attach Atgeir</value>
+  </data>
+  <data name="Axes" xml:space="preserve">
+    <value>Axes</value>
+  </data>
+  <data name="Backup Character" xml:space="preserve">
+    <value>Backup Character</value>
+  </data>
+  <data name="Backup Restore" xml:space="preserve">
+    <value>Backup Restore</value>
+  </data>
+  <data name="Barley" xml:space="preserve">
+    <value>Barley</value>
+  </data>
+  <data name="Barley flour" xml:space="preserve">
+    <value>Barley flour</value>
+  </data>
+  <data name="Barley wine base: Fire resistance" xml:space="preserve">
+    <value>Barley wine base: Fire resistance</value>
+  </data>
+  <data name="Battleaxe" xml:space="preserve">
+    <value>Battleaxe</value>
+  </data>
+  <data name="Beard" xml:space="preserve">
+    <value>Beard</value>
+  </data>
+  <data name="Beech seeds" xml:space="preserve">
+    <value>Beech seeds</value>
+  </data>
+  <data name="Black metal" xml:space="preserve">
+    <value>Black metal</value>
+  </data>
+  <data name="Black metal scrap" xml:space="preserve">
+    <value>Black metal scrap</value>
+  </data>
+  <data name="Blackmetal atgeir" xml:space="preserve">
+    <value>Blackmetal atgeir</value>
+  </data>
+  <data name="Blackmetal axe" xml:space="preserve">
+    <value>Blackmetal axe</value>
+  </data>
+  <data name="Blob hair" xml:space="preserve">
+    <value>Blob hair</value>
+  </data>
+  <data name="Blocking" xml:space="preserve">
+    <value>Blocking</value>
+  </data>
+  <data name="Blood pudding" xml:space="preserve">
+    <value>Blood pudding</value>
+  </data>
+  <data name="Bloodbag" xml:space="preserve">
+    <value>Bloodbag</value>
+  </data>
+  <data name="Blueberries" xml:space="preserve">
+    <value>Blueberries</value>
+  </data>
+  <data name="boar attack1" xml:space="preserve">
+    <value>boar attack1</value>
+  </data>
+  <data name="Bone fragments" xml:space="preserve">
+    <value>Bone fragments</value>
+  </data>
+  <data name="Bow" xml:space="preserve">
+    <value>Bow</value>
+  </data>
+  <data name="Bows" xml:space="preserve">
+    <value>Bows</value>
+  </data>
+  <data name="Braided 1" xml:space="preserve">
+    <value>Braided 1</value>
+  </data>
+  <data name="Braided 2" xml:space="preserve">
+    <value>Braided 2</value>
+  </data>
+  <data name="Braided 3" xml:space="preserve">
+    <value>Braided 3</value>
+  </data>
+  <data name="Braided 4" xml:space="preserve">
+    <value>Braided 4</value>
+  </data>
+  <data name="Bread" xml:space="preserve">
+    <value>Bread</value>
+  </data>
+  <data name="Bronze" xml:space="preserve">
+    <value>Bronze</value>
+  </data>
+  <data name="Bronze atgeir" xml:space="preserve">
+    <value>Bronze atgeir</value>
+  </data>
+  <data name="Bronze axe" xml:space="preserve">
+    <value>Bronze axe</value>
+  </data>
+  <data name="Bronze nails" xml:space="preserve">
+    <value>Bronze nails</value>
+  </data>
+  <data name="Bronze plate cuirass" xml:space="preserve">
+    <value>Bronze plate cuirass</value>
+  </data>
+  <data name="Bronze plate leggings" xml:space="preserve">
+    <value>Bronze plate leggings</value>
+  </data>
+  <data name="Bronzehead arrow" xml:space="preserve">
+    <value>Bronzehead arrow</value>
+  </data>
+  <data name="Builds" xml:space="preserve">
+    <value>Builds</value>
+  </data>
+  <data name="B_Braided 1" xml:space="preserve">
+    <value>Braided 1</value>
+  </data>
+  <data name="B_Braided 2" xml:space="preserve">
+    <value>Braided 2</value>
+  </data>
+  <data name="B_Braided 3" xml:space="preserve">
+    <value>Braided 3</value>
+  </data>
+  <data name="B_Braided 4" xml:space="preserve">
+    <value>Braided 4</value>
+  </data>
+  <data name="B_Long 1" xml:space="preserve">
+    <value>Long 1</value>
+  </data>
+  <data name="B_Long 2" xml:space="preserve">
+    <value>Long 2</value>
+  </data>
+  <data name="B_No beard" xml:space="preserve">
+    <value>No beard</value>
+  </data>
+  <data name="B_Short 1" xml:space="preserve">
+    <value>Short 1</value>
+  </data>
+  <data name="B_Short 2" xml:space="preserve">
+    <value>Short 2</value>
+  </data>
+  <data name="B_Short 3" xml:space="preserve">
+    <value>Short 3</value>
+  </data>
+  <data name="B_Thick 1" xml:space="preserve">
+    <value>Thick 1</value>
+  </data>
+  <data name="Chest" xml:space="preserve">
+    <value>Chest</value>
+  </data>
+  <data name="Clubs" xml:space="preserve">
+    <value>Clubs</value>
+  </data>
+  <data name="Consumable" xml:space="preserve">
+    <value>Consumable</value>
+  </data>
+  <data name="Crafts" xml:space="preserve">
+    <value>Crafts</value>
+  </data>
+  <data name="Crude bow" xml:space="preserve">
+    <value>Crude bow</value>
+  </data>
+  <data name="Customisation" xml:space="preserve">
+    <value>Customisation</value>
+  </data>
+  <data name="Deaths" xml:space="preserve">
+    <value>Deaths</value>
+  </data>
+  <data name="Draugr fang" xml:space="preserve">
+    <value>Draugr fang</value>
+  </data>
+  <data name="fart" xml:space="preserve">
+    <value>fart</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Finewood bow" xml:space="preserve">
+    <value>Finewood bow</value>
+  </data>
+  <data name="Fire arrow" xml:space="preserve">
+    <value>Fire arrow</value>
+  </data>
+  <data name="Fire resistance barley wine" xml:space="preserve">
+    <value>Fire resistance barley wine</value>
+  </data>
+  <data name="FireMagic" xml:space="preserve">
+    <value>FireMagic</value>
+  </data>
+  <data name="Flint axe" xml:space="preserve">
+    <value>Flint axe</value>
+  </data>
+  <data name="Flinthead arrow" xml:space="preserve">
+    <value>Flinthead arrow</value>
+  </data>
+  <data name="Frost arrow" xml:space="preserve">
+    <value>Frost arrow</value>
+  </data>
+  <data name="FrostMagic" xml:space="preserve">
+    <value>FrostMagic</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Hair" xml:space="preserve">
+    <value>Hair</value>
+  </data>
+  <data name="Hair Colour" xml:space="preserve">
+    <value>Hair Colour</value>
+  </data>
+  <data name="Hands" xml:space="preserve">
+    <value>Hands</value>
+  </data>
+  <data name="heal" xml:space="preserve">
+    <value>heal</value>
+  </data>
+  <data name="Helmet" xml:space="preserve">
+    <value>Helmet</value>
+  </data>
+  <data name="Huntsman bow" xml:space="preserve">
+    <value>Huntsman bow</value>
+  </data>
+  <data name="Inventory" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="Iron atgeir" xml:space="preserve">
+    <value>Iron atgeir</value>
+  </data>
+  <data name="Iron axe" xml:space="preserve">
+    <value>Iron axe</value>
+  </data>
+  <data name="Iron greaves" xml:space="preserve">
+    <value>Iron greaves</value>
+  </data>
+  <data name="Iron scale mail" xml:space="preserve">
+    <value>Iron scale mail</value>
+  </data>
+  <data name="Ironhead arrow" xml:space="preserve">
+    <value>Ironhead arrow</value>
+  </data>
+  <data name="Jump" xml:space="preserve">
+    <value>Jump</value>
+  </data>
+  <data name="Kills" xml:space="preserve">
+    <value>Kills</value>
+  </data>
+  <data name="Knives" xml:space="preserve">
+    <value>Knives</value>
+  </data>
+  <data name="Leather pants" xml:space="preserve">
+    <value>Leather pants</value>
+  </data>
+  <data name="Leather tunic" xml:space="preserve">
+    <value>Leather tunic</value>
+  </data>
+  <data name="Legs" xml:space="preserve">
+    <value>Legs</value>
+  </data>
+  <data name="Long 1" xml:space="preserve">
+    <value>Long 1</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="Megingjord" xml:space="preserve">
+    <value>Megingjord</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>Miscellaneous</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Needle arrow" xml:space="preserve">
+    <value>Needle arrow</value>
+  </data>
+  <data name="No hair" xml:space="preserve">
+    <value>No hair</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Obsidian arrow" xml:space="preserve">
+    <value>Obsidian arrow</value>
+  </data>
+  <data name="One Handed Weapon" xml:space="preserve">
+    <value>One Handed Weapon</value>
+  </data>
+  <data name="Ooze bomb" xml:space="preserve">
+    <value>Ooze bomb</value>
+  </data>
+  <data name="Padded cuirass" xml:space="preserve">
+    <value>Padded cuirass</value>
+  </data>
+  <data name="Padded greaves" xml:space="preserve">
+    <value>Padded greaves</value>
+  </data>
+  <data name="Pickaxes" xml:space="preserve">
+    <value>Pickaxes</value>
+  </data>
+  <data name="Poison arrow" xml:space="preserve">
+    <value>Poison arrow</value>
+  </data>
+  <data name="Polearms" xml:space="preserve">
+    <value>Polearms</value>
+  </data>
+  <data name="Ponytail 1" xml:space="preserve">
+    <value>Ponytail 1</value>
+  </data>
+  <data name="Ponytail 2" xml:space="preserve">
+    <value>Ponytail 2</value>
+  </data>
+  <data name="Ponytail 3" xml:space="preserve">
+    <value>Ponytail 3</value>
+  </data>
+  <data name="Ponytail 4" xml:space="preserve">
+    <value>Ponytail 4</value>
+  </data>
+  <data name="Rag pants" xml:space="preserve">
+    <value>Rag pants</value>
+  </data>
+  <data name="Rag tunic" xml:space="preserve">
+    <value>Rag tunic</value>
+  </data>
+  <data name="Revert" xml:space="preserve">
+    <value>Revert</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="Short 1" xml:space="preserve">
+    <value>Short 1</value>
+  </data>
+  <data name="Short 2" xml:space="preserve">
+    <value>Short 2</value>
+  </data>
+  <data name="Shoulder" xml:space="preserve">
+    <value>Shoulder</value>
+  </data>
+  <data name="Side Swept 1" xml:space="preserve">
+    <value>Side Swept 1</value>
+  </data>
+  <data name="Side Swept 2" xml:space="preserve">
+    <value>Side Swept 2</value>
+  </data>
+  <data name="Side Swept 3" xml:space="preserve">
+    <value>Side Swept 3</value>
+  </data>
+  <data name="Silver arrow" xml:space="preserve">
+    <value>Silver arrow</value>
+  </data>
+  <data name="Skills" xml:space="preserve">
+    <value>Skills</value>
+  </data>
+  <data name="Skin Colour" xml:space="preserve">
+    <value>Skin Colour</value>
+  </data>
+  <data name="Skin Glow" xml:space="preserve">
+    <value>Skin Glow</value>
+  </data>
+  <data name="slap" xml:space="preserve">
+    <value>slap</value>
+  </data>
+  <data name="slime throw" xml:space="preserve">
+    <value>slime throw</value>
+  </data>
+  <data name="Sneak" xml:space="preserve">
+    <value>Sneak</value>
+  </data>
+  <data name="Spears" xml:space="preserve">
+    <value>Spears</value>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="Stone axe" xml:space="preserve">
+    <value>Stone axe</value>
+  </data>
+  <data name="Swim" xml:space="preserve">
+    <value>Swim</value>
+  </data>
+  <data name="Swords" xml:space="preserve">
+    <value>Swords</value>
+  </data>
+  <data name="Tool" xml:space="preserve">
+    <value>Tool</value>
+  </data>
+  <data name="Torch" xml:space="preserve">
+    <value>Torch</value>
+  </data>
+  <data name="Troll leather pants" xml:space="preserve">
+    <value>Troll leather pants</value>
+  </data>
+  <data name="Troll leather tunic" xml:space="preserve">
+    <value>Troll leather tunic</value>
+  </data>
+  <data name="Trophy" xml:space="preserve">
+    <value>Trophy</value>
+  </data>
+  <data name="Two Handed Weapon" xml:space="preserve">
+    <value>Two Handed Weapon</value>
+  </data>
+  <data name="Unarmed" xml:space="preserve">
+    <value>Unarmed</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Utility" xml:space="preserve">
+    <value>Utility</value>
+  </data>
+  <data name="Wolf armor chest" xml:space="preserve">
+    <value>Wolf armor chest</value>
+  </data>
+  <data name="Wolf armor legs" xml:space="preserve">
+    <value>Wolf armor legs</value>
+  </data>
+  <data name="Wood arrow" xml:space="preserve">
+    <value>Wood arrow</value>
+  </data>
+  <data name="WoodCutting" xml:space="preserve">
+    <value>WoodCutting</value>
+  </data>
+</root>

@@ -9,6 +9,10 @@ namespace Loki
     {
         private int _stack;
         private float _durability;
+        private double _maxDurability;
+        private int _quality;
+        private string _crafterName;
+        private long _crafterId;
         public string Name { get; }
 
         public int Stack
@@ -39,17 +43,48 @@ namespace Loki
             }
         }
 
+        public int Quality
+        {
+            get => _quality;
+            set
+            {
+                if (value.Equals(_quality)) return;
+                _quality = value;
+                OnPropertyChanged();
+            }
+        }
+
         public Vector2i Pos { get; }
         public bool Equiped { get; }
-        public int Quality { get; }
         public int Variant { get; }
-        public long CrafterId { get; }
-        public string CrafterName { get; set; }
+        public long CrafterId { 
+            get => _crafterId; 
+            set
+            {
+                _crafterId = value;
+                OnPropertyChanged();
+            }
+        }
+        public string CrafterName { 
+            get => _crafterName; 
+            set
+            {
+                _crafterName = value;
+                OnPropertyChanged();
+            }
+        }
 
         public bool HasCrafterTag => CrafterId != 0;
 
-        public double MaxDurability =>
-            SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
+        public double MaxDurability
+        {
+            get => _maxDurability;
+            set
+            {
+                _maxDurability = SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
+                OnPropertyChanged();
+            }
+        }
 
         public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName)
         {

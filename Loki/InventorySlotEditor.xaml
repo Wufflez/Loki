@@ -175,6 +175,9 @@
                     <DataTrigger Binding="{Binding IsEmpty}" Value="True">
                         <Setter Property="Background" Value="Gray"/>
                     </DataTrigger>
+                    <DataTrigger Binding="{Binding Item.Equiped}" Value="True">
+                        <Setter Property="Background" Value="#FF7D8989"/>
+                    </DataTrigger>
                 </Style.Triggers>
             </Style>
         </Border.Style>
@@ -203,7 +206,7 @@
                     <TextBlock Margin="6,0"
                                Visibility="{Binding Item.HasQualityLevels, Converter={StaticResource BoolToVis}}"
                                FontWeight="Bold" FontSize="26"
-                               Foreground="#DC871A"
+                               Foreground="#DC871B"
                                Text="{Binding Item.Quality, FallbackValue='X'}"
                                HorizontalAlignment="Right" VerticalAlignment="Top" />
 
@@ -308,29 +311,60 @@
                                     Visibility="{Binding Item.SharedData.UsesDurability, Converter={StaticResource BoolToVis}}">
                                 <Image Source="Resources/wrench-32.ico" />
                             </Button>
+
+                            <!-- Quality button up -->
+                            <Button Padding="0" Cursor="Hand" Margin="0,2,0,0"
+                                    ToolTip="Quality up"
+                                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                    Command="{Binding QualityUp}" 
+                                    Style="{StaticResource LittleSquareCoolButton}"
+                                    Visibility="{Binding Item.HasQualityLevels, Converter={StaticResource BoolToVis}}">
+                                <Path Data="M 50,5 95,97.5 5,97.5 z" Stroke="Blue" Stretch="Fill"
+                                      StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round" />
+                            </Button>
+
+                            <!-- Quality button down -->
+                            <Button Padding="0" Cursor="Hand" Margin="0,2,0,0"
+                                    ToolTip="Quality down"
+                                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                    Command="{Binding QualityDown}" 
+                                    Style="{StaticResource LittleSquareCoolButton}"
+                                    Visibility="{Binding Item.HasQualityLevels, Converter={StaticResource BoolToVis}}">
+                                <Path Data="M 50,97.5 95,5 5,5 z" Stroke="Blue" Stretch="Fill"
+                                      StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round" />
+                            </Button>
                         </StackPanel>
                         
                         <!-- Tag in top middle -->
-                        <Image HorizontalAlignment="Center" VerticalAlignment="Top" Margin="6"
-                               Visibility="{Binding Item.HasCrafterTag, Converter={StaticResource BoolToVis}}"
-                               Source="Resources/tag-32.png" Width="24">
-                            <Image.ToolTip>
-                                <StackPanel>
-                                    <TextBlock Foreground="DarkRed" FontWeight="DemiBold" HorizontalAlignment="Center">Crafted By</TextBlock>
-                                    <DockPanel>
-                                        <Image 
-                                            VerticalAlignment="Center"
-                                            Width="16" Source="Resources/viking-24.png" DockPanel.Dock="Left" Margin="8"/>
-                                        <StackPanel>
-                                            <TextBlock FontSize="14" Text="{Binding Item.CrafterName}" />
-                                            <TextBlock Text="{Binding Item.CrafterId, StringFormat='ID: {0}'}"
-                                                       FontSize="8" Foreground="Gray"/>
-                                        </StackPanel>
-                                    </DockPanel>
-                                </StackPanel>
-                            </Image.ToolTip>
-                        </Image>
-
+                        <StackPanel>
+                            <Image HorizontalAlignment="Center" VerticalAlignment="Top" Margin="6"
+                               
+                                   Source="Resources/tag-32.png" Width="24">
+                                <Image.ToolTip>
+                                    <StackPanel>
+                                        <TextBlock Foreground="DarkRed" FontWeight="DemiBold" HorizontalAlignment="Center">Crafted By</TextBlock>
+                                        <DockPanel>
+                                            <Image 
+                                                VerticalAlignment="Center"
+                                                Width="16" Source="Resources/viking-24.png" DockPanel.Dock="Left" Margin="8"/>
+                                            <StackPanel>
+                                                <TextBlock FontSize="14" Text="{Binding Item.CrafterName}" />
+                                                <TextBlock Text="{Binding Item.CrafterId, StringFormat='ID: {0}'}"
+                                                           FontSize="8" Foreground="Gray"/>
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </Image.ToolTip>
+                            </Image>
+                            <!-- Toggle crafter button -->
+                            <Button Padding="0" Cursor="Hand" Margin="0,2,0,0"
+                                ToolTip="Toggle crafter"
+                                HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                Command="{Binding ToggleCrafter}" 
+                                Style="{StaticResource LittleSquareCoolButton}">
+                                <Image Source="Resources/tag-32.png" />
+                            </Button>
+                        </StackPanel>
                     </Grid>
                     
                     
