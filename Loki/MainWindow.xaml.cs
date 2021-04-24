@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Media3D;
@@ -230,6 +231,13 @@ namespace Loki
             opacityAnim.Completed += (sender, args) => NotificationBorder.Visibility = Visibility.Hidden;
             NotificationBorder.BeginAnimation(OpacityProperty, opacityAnim);
             
+        }
+
+        private void itemSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            InventoryListItem.ItemsFilter = itemSearch.Text;
+            var collectionViewSource = CollectionViewSource.GetDefaultView(itemsControl.ItemsSource);
+            collectionViewSource.Filter = new Predicate<object>(InventoryListItem.FilterListItemObject);
         }
     }
 }
