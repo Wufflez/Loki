@@ -17,6 +17,8 @@ namespace Loki
             ItemData = itemData;
         }
 
+        public static string ItemsFilter { get; set; }
+
         public static List<InventoryListItem> AllItems = ItemDb.AllItems
             .Select(CreateListItem).ToList();
 
@@ -53,6 +55,33 @@ namespace Loki
                 _ => Loki.Properties.Resources.Unknown,
             };
             return new InventoryListItem(displayName, category, itemData);
+        }
+
+        public static bool FilterListItem(InventoryListItem item)
+        {
+            if (string.IsNullOrWhiteSpace(ItemsFilter))
+            {
+                return true;
+            }
+            else
+            {
+                string[] filterItems = ItemsFilter.ToLower().Split(new char[] { ',' });
+
+                foreach(string filterItem in filterItems)
+                {
+                    if(item.Name.ToLower().Contains(filterItem))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        public static bool FilterListItemObject(object itemObject)
+        {
+            return FilterListItem(itemObject as InventoryListItem);
         }
     }
 }
