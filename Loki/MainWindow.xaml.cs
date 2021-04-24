@@ -236,8 +236,11 @@ namespace Loki
         private void itemSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             InventoryListItem.ItemsFilter = itemSearch.Text;
-            var collectionViewSource = CollectionViewSource.GetDefaultView(itemsControl.ItemsSource);
-            collectionViewSource.Filter = new Predicate<object>(InventoryListItem.FilterListItemObject);
+            if (itemsControl?.ItemsSource != null)
+            {
+                var collectionViewSource = CollectionViewSource.GetDefaultView(itemsControl.ItemsSource);
+                collectionViewSource.Filter = new Predicate<object>(InventoryListItem.FilterListItemObject);
+            }
         }
     }
 }
