@@ -206,8 +206,14 @@
 
                 <!-- Todo: Tidy up this mess lol. -->
                 <DockPanel>
-                    <StackPanel DockPanel.Dock="Left">
-                        <Grid Margin="0,4,4,0">
+                    <Grid DockPanel.Dock="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        
+                        <!-- Item Filter -->
+                        <Grid Grid.Row="0" Margin="0,4,4,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
@@ -216,10 +222,10 @@
                             <Border Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Padding="2,0,2,0">
                                 <TextBox x:Name="itemSearch" VerticalContentAlignment="Center" TextChanged="itemSearch_TextChanged" Padding="0,0,-1,0" BorderBrush="{x:Null}"></TextBox>
                             </Border>
-                            
                         </Grid>
+                        
                         <!-- Item Picker -->
-                        <ScrollViewer Margin="4,4,4,4" Padding="0,0,8,0" MinWidth="250">
+                        <ScrollViewer Grid.Row="1" Margin="4,4,4,4" Padding="0,0,8,0" MinWidth="250">
                             <ItemsControl x:Name="itemsControl" DockPanel.Dock="Left">
 
                                 <ItemsControl.ItemsSource>
@@ -263,7 +269,7 @@
 
                             </ItemsControl>
                         </ScrollViewer>
-                    </StackPanel>
+                    </Grid>
 
                     <loki:AspectRatioBox
                     
