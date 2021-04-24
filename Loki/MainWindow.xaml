@@ -214,7 +214,7 @@
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" FontSize="10">Search:</Label>
                             <Border Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Padding="2,0,2,0">
-                                <TextBox x:Name="itemSearch" VerticalContentAlignment="Center" TextChanged="itemSearch_TextChanged" Padding="0,0,-1,0" BorderBrush="{x:Null}">Test</TextBox>
+                                <TextBox x:Name="itemSearch" VerticalContentAlignment="Center" TextChanged="itemSearch_TextChanged" Padding="0,0,-1,0" BorderBrush="{x:Null}"></TextBox>
                             </Border>
                             
                         </Grid>
