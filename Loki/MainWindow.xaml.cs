@@ -231,5 +231,10 @@ namespace Loki
             NotificationBorder.BeginAnimation(OpacityProperty, opacityAnim);
             
         }
+
+        private void reloadButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadProfile(SelectedCharacterFile);
+        }
     }
 }
