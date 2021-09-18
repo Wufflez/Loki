@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -6,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows;
 using System.Windows.Media;
 using JetBrains.Annotations;
 
@@ -231,9 +233,20 @@ namespace Loki
             long amountRead = input.Position - playerDataStartPos;
             if (amountRead != expectedPlayerDataLength)
             {
-                throw new InvalidDataException(
+                var message =
                     "Amount of data read for player field did not match length header. " +
-                    $"Data read = {amountRead}B, Length in header = {expectedPlayerDataLength}B");
+                    $"Data read = {amountRead}B, Length in header = {expectedPlayerDataLength}B";
+
+                var result = MessageBox.Show(
+                    $"{message}" + Environment.NewLine + Environment.NewLine +
+                    "Do you want to continue loading? (Not Recommended)",
+                    $"Error reading {nameof(Player)}",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.No)
+                {
+                    throw new InvalidDataException(message);
+                }
             }
 
             return player;
