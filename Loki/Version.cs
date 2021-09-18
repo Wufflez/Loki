@@ -7,7 +7,7 @@ namespace Loki
         /// <summary>
         /// Version of PlayerProfile .fch data.
         /// </summary>
-        public const int ProfileVersion = 33;
+        public const int ProfileVersion = 36;
 
         private static readonly int[] CompatibleProfileVersions =
         {
