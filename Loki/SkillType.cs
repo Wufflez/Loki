@@ -20,6 +20,7 @@
         Sneak = 101,
         Run = 102,
         Swim = 103,
-        All = 999,
+        Ride = 110,
+        All = 999
     }
 }

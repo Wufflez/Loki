@@ -191,12 +191,22 @@ namespace Loki
                     if (version >= 14)
                     {
                         string name = reader.ReadString();
-                        float health = reader.ReadSingle();
-                        float stamina = version >= 16 ? reader.ReadSingle() : default;
-                        player._food.Add(new Food(name, health, stamina));
+                        float time = default;
+                        float health = default;
+                        float stamina = default;
+                        if(version >= 25)
+                        {
+                            time = reader.ReadSingle();
+                        }
+                        else
+                        {
+                            health = reader.ReadSingle();
+                            stamina = version >= 16 ? reader.ReadSingle() : default;
+                        }
+                        player._food.Add(new Food(name, time, health, stamina));
                     }
                     else
-                    {  
+                    {
                         // Skip legacy data.
                         reader.ReadString();
                         input.Position += version >= 13 ? 24 : 28;
