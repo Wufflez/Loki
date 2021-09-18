@@ -13,7 +13,7 @@ namespace Loki
 {
     public class Player: INotifyPropertyChanged
     {
-        private const int Version = 24;
+        private const int Version = 25;
         private const int InventoryVersion = 103;
         private const int SkillVersion = 2;
 
@@ -307,8 +307,7 @@ namespace Loki
             foreach (var food in _food)
             {
                 writer.Write(food.Name);
-                writer.Write(food.Health);
-                writer.Write(food.Stamina);
+                writer.Write(food.Time);
             }
 
             writer.Write(SkillVersion);
