@@ -1604,6 +1604,18 @@ namespace Loki
                 DurabilityPerLevel = 50, MaxStack = 1, DisplayName = "Unarmed",
                 MaxQuality = 1, ItemType = (ItemType)3,
             },
+            ["Pukeberries"] = new SharedItemData
+            {
+                ItemName = "Pukeberries",
+                IsTeleportable = true,
+                UsesDurability = false,
+                MaxDurability = 100,
+                DurabilityPerLevel = 50,
+                MaxStack = 1,
+                DisplayName = "Pukeberries",
+                MaxQuality = 1,
+                ItemType = (ItemType)2,
+            },
             ["QueenBee"] = new SharedItemData
             {
                 ItemName = "QueenBee", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
