@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows;
 
 namespace Loki
 {
@@ -67,9 +68,20 @@ namespace Loki
             var dataRead = input.Position - startPosition;
             if (dataRead != totalExpectedSize)
             {
-                throw new InvalidDataException(
+                var message =
                     "Amount of data read did not match the length header. " +
-                    $"Data read = {dataRead}B, Length in header = {totalExpectedSize}B");
+                    $"Data read = {dataRead}B, Length in header = {totalExpectedSize}B";
+
+                var result = MessageBox.Show(
+                    $"{message}" + Environment.NewLine + Environment.NewLine +
+                    "Do you want to continue loading? (Not Recommended)", 
+                    $"Error reading {nameof(PlayerProfile)}", 
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.No)
+                {
+                    throw new InvalidDataException(message);
+                }
             }
 
             return new PlayerProfile
