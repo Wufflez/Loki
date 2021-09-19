@@ -5,7 +5,12 @@ namespace Loki
     internal static class Version
     {
         /// <summary>
-        /// Version of PlayerProfile .fch data.
+        /// Version of PlayerProfile .fch data. This is what's checked when loading the file.
+        /// </summary>
+        public const int MinProfileVersion = 33;
+
+        /// <summary>
+        /// Version of PlayerProfile .fch data. This is the version of the saved file.
         /// </summary>
         public const int ProfileVersion = 36;
 
@@ -21,7 +26,7 @@ namespace Loki
         };
 
         public static bool IsProfileCompatible(int version) =>
-            version == ProfileVersion || CompatibleProfileVersions.Contains(version);
+            version == MinProfileVersion || CompatibleProfileVersions.Contains(version);
 
     }
 }
