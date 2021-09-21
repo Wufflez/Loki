@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -84,8 +85,7 @@ namespace Loki
             get => (bool) GetValue(SaveInProgressProperty);
             set => SetValue(SaveInProgressProperty, value);
         }
-
-
+        
         private static void SelectedCharacterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var window = (MainWindow) d;
@@ -233,13 +233,18 @@ namespace Loki
             
         }
 
-        private void itemSearch_TextChanged(object sender, TextChangedEventArgs e)
+        private void itemSearch_TextChanged(object sender, TextChangedEventArgs e) 
+            => InventoryViewSource.View.Refresh();
+
+        private void InventoryViewSource_OnFilter(object sender, FilterEventArgs e)
         {
-            InventoryListItem.ItemsFilter = itemSearch.Text;
-            if (itemsControl?.ItemsSource != null)
+            if (string.IsNullOrWhiteSpace(ItemSearch.Text))
+                e.Accepted = true;
+            else if (e.Item is InventoryListItem item)
             {
-                var collectionViewSource = CollectionViewSource.GetDefaultView(itemsControl.ItemsSource);
-                collectionViewSource.Filter = new Predicate<object>(InventoryListItem.FilterListItemObject);
+                string[] filterItems = ItemSearch.Text.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                e.Accepted = filterItems.Any(filterItem =>
+                    item.Name.Contains(filterItem, StringComparison.OrdinalIgnoreCase));
             }
         }
     }

@@ -216,23 +216,25 @@
                         <Grid Grid.Row="0" Margin="0,4,4,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" FontSize="10">Search:</Label>
-                            <Border Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Padding="2,0,2,0">
-                                <TextBox x:Name="itemSearch" VerticalContentAlignment="Center" TextChanged="itemSearch_TextChanged" Padding="0,0,-1,0" BorderBrush="{x:Null}"></TextBox>
-                            </Border>
+                            <TextBox Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Padding="2,0,2,0"
+                                     x:Name="ItemSearch" VerticalContentAlignment="Center" TextChanged="itemSearch_TextChanged" />
+                           
                         </Grid>
                         
                         <!-- Item Picker -->
                         <ScrollViewer Grid.Row="1" Margin="4,4,4,4" Padding="0,0,8,0" MinWidth="250">
-                            <ItemsControl x:Name="itemsControl" DockPanel.Dock="Left">
+                            <ItemsControl DockPanel.Dock="Left">
 
                                 <ItemsControl.ItemsSource>
                                     <Binding>
                                         <Binding.Source>
                                             <CollectionViewSource
-                                            Source="{x:Static loki:InventoryListItem.AllItems}">
+                                                x:Name ="InventoryViewSource"
+                                                Filter="InventoryViewSource_OnFilter"
+                                                Source="{x:Static loki:InventoryListItem.AllItems}">
                                                 <CollectionViewSource.GroupDescriptions>
                                                     <PropertyGroupDescription PropertyName="Category" />
                                                 </CollectionViewSource.GroupDescriptions>
