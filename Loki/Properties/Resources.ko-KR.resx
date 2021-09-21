@@ -459,6 +459,9 @@
   <data name="Revert" xml:space="preserve">
     <value>되돌리기</value>
   </data>
+  <data name="Riding" xml:space="preserve">
+    <value>승마</value>
+  </data>
   <data name="Run" xml:space="preserve">
     <value>달리기</value>
   </data>
@@ -558,7 +561,7 @@
   <data name="Wood arrow" xml:space="preserve">
     <value>나무 화살</value>
   </data>
-  <data name="WoodCutting" xml:space="preserve">
+  <data name="Wood Cutting" xml:space="preserve">
     <value>벌목</value>
   </data>
 </root>

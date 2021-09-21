@@ -459,6 +459,9 @@
   <data name="Revert" xml:space="preserve">
     <value>Revert</value>
   </data>
+  <data name="Riding" xml:space="preserve">
+    <value>Riding</value>
+  </data>
   <data name="Run" xml:space="preserve">
     <value>Run</value>
   </data>
@@ -558,7 +561,7 @@
   <data name="Wood arrow" xml:space="preserve">
     <value>Wood arrow</value>
   </data>
-  <data name="WoodCutting" xml:space="preserve">
-    <value>WoodCutting</value>
+  <data name="Wood Cutting" xml:space="preserve">
+    <value>Wood Cutting</value>
   </data>
 </root>

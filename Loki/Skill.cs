@@ -5,69 +5,48 @@ using JetBrains.Annotations;
 
 namespace Loki
 {
-    public class Skill: INotifyPropertyChanged
+    public class Skill : INotifyPropertyChanged
     {
-        private string _SkillName;
         private float _level;
         private float _accumulator;
 
         public Skill(SkillType type, float level, float accumulator)
         {
             Type = type;
-            SkillName = Convert.ToString(Type);
+            SkillName = GetSkillName(type);
             Level = level;
             Accumulator = accumulator;
         }
 
+        private static string GetSkillName(SkillType type)
+            =>
+                type switch
+                {
+                    SkillType.None => Properties.Resources.None,
+                    SkillType.Swords => Properties.Resources.Swords,
+                    SkillType.Knives => Properties.Resources.Knives,
+                    SkillType.Clubs => Properties.Resources.Clubs,
+                    SkillType.Polearms => Properties.Resources.Polearms,
+                    SkillType.Spears => Properties.Resources.Spears,
+                    SkillType.Blocking => Properties.Resources.Blocking,
+                    SkillType.Axes => Properties.Resources.Axes,
+                    SkillType.Bows => Properties.Resources.Bows,
+                    SkillType.FireMagic => Properties.Resources.FireMagic,
+                    SkillType.FrostMagic => Properties.Resources.FrostMagic,
+                    SkillType.Unarmed => Properties.Resources.Unarmed,
+                    SkillType.Pickaxes => Properties.Resources.Pickaxes,
+                    SkillType.WoodCutting => Properties.Resources.Wood_Cutting,
+                    SkillType.Jump => Properties.Resources.Jump,
+                    SkillType.Sneak => Properties.Resources.Sneak,
+                    SkillType.Run => Properties.Resources.Run,
+                    SkillType.Swim => Properties.Resources.Swim,
+                    SkillType.Ride => Properties.Resources.Riding,
+                    SkillType.All => Properties.Resources.All,
+                    _ => throw new ArgumentOutOfRangeException(nameof(type), type, "Unrecognised skill type"),
+                };
+
         public SkillType Type { get; }
-
-        string None = Loki.Properties.Resources.None;
-        string Swords = Loki.Properties.Resources.Swords;
-        string Knives = Loki.Properties.Resources.Knives;
-        string Clubs = Loki.Properties.Resources.Clubs;
-        string Polearms = Loki.Properties.Resources.Polearms;
-        string Spears = Loki.Properties.Resources.Spears;
-        string Blocking = Loki.Properties.Resources.Blocking;
-        string Axes = Loki.Properties.Resources.Axes;
-        string Bows = Loki.Properties.Resources.Bows;
-        string FireMagic = Loki.Properties.Resources.FireMagic;
-        string FrostMagic = Loki.Properties.Resources.FrostMagic;
-        string Unarmed = Loki.Properties.Resources.Unarmed;
-        string Pickaxes = Loki.Properties.Resources.Pickaxes;
-        string WoodCutting = Loki.Properties.Resources.WoodCutting;
-        string Jump = Loki.Properties.Resources.Jump;
-        string Sneak = Loki.Properties.Resources.Sneak;
-        string Run = Loki.Properties.Resources.Run;
-        string Swim = Loki.Properties.Resources.Swim;
-        string All = Loki.Properties.Resources.All;
-
-        public string SkillName
-        {
-            get => _SkillName;
-            set
-            {
-                if (value.Equals("None")) value = None;
-                if (value.Equals("Swords")) value = Swords;
-                if (value.Equals("Knives")) value = Knives;
-                if (value.Equals("Clubs")) value = Clubs;
-                if (value.Equals("Polearms")) value = Polearms;
-                if (value.Equals("Spears")) value = Spears;
-                if (value.Equals("Blocking")) value = Blocking;
-                if (value.Equals("Axes")) value = Axes;
-                if (value.Equals("Bows")) value = Bows;
-                if (value.Equals("FireMagic")) value = FireMagic;
-                if (value.Equals("FrostMagic")) value = FrostMagic;
-                if (value.Equals("Unarmed")) value = Unarmed;
-                if (value.Equals("Pickaxes")) value = Pickaxes;
-                if (value.Equals("WoodCutting")) value = WoodCutting;
-                if (value.Equals("Jump")) value = Jump;
-                if (value.Equals("Sneak")) value = Sneak;
-                if (value.Equals("Run")) value = Run;
-                if (value.Equals("Swim")) value = Swim;
-                if (value.Equals("All")) value = All;
-                _SkillName = value;
-            }
-        }
+        public string SkillName { get; }
 
         public float Level
         {
