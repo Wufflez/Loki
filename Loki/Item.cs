@@ -105,16 +105,17 @@ namespace Loki
             }
 
         }
-        
+
+        [CanBeNull] // Can be null if the item is unrecognised (very new update not accounted for etc.)
         public SharedItemData SharedData { get; }
 
         public bool HasQualityLevels => SharedData?.MaxQuality > 1;
 
         public bool Unrecognised { get; }
 
-        public string StackText => $"{Stack} / {SharedData.MaxStack}";
+        public string StackText => $"{Stack} / {SharedData?.MaxStack}";
 
-        public bool CanStack => SharedData.MaxStack > 1;
+        public bool CanStack => SharedData?.MaxStack > 1;
 
         public override string ToString() => $"{Name} [{Stack}]";
         public event PropertyChangedEventHandler PropertyChanged;
