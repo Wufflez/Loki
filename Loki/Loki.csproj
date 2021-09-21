@@ -21,6 +21,7 @@
     <None Remove="Resources\clock-16.ico" />
     <None Remove="Resources\hammer.png" />
     <None Remove="Resources\loki.ico" />
+    <None Remove="Resources\magnifier.png" />
     <None Remove="Resources\skull.png" />
     <None Remove="Resources\tag-32.png" />
     <None Remove="Resources\target.png" />
@@ -46,6 +47,7 @@
     <Resource Include="Resources\clock-16.ico" />
     <Resource Include="Resources\hammer.png" />
     <Resource Include="Resources\loki.ico" />
+    <Resource Include="Resources\magnifier.png" />
     <Resource Include="Resources\skull.png" />
     <Resource Include="Resources\tag-32.png" />
     <Resource Include="Resources\target.png" />

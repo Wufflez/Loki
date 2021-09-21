@@ -215,10 +215,10 @@
                         <!-- Item Filter -->
                         <Grid Grid.Row="0" Margin="0,4,4,0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="24" />
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" FontSize="10">Search:</Label>
+                            <Image Grid.Column="0" Source="Resources/magnifier.png" Stretch="Uniform" Height="16" Width="16"/>
                             <TextBox Grid.Column="1" BorderBrush="DarkGray" BorderThickness="1" Padding="2,0,2,0"
                                      x:Name="ItemSearch" VerticalContentAlignment="Center" TextChanged="itemSearch_TextChanged" />
                            
