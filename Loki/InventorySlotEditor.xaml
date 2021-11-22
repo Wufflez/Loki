@@ -246,6 +246,14 @@
                                 <TextBlock
                                     FontSize="14" FontWeight="DemiBold" Foreground="White"
                                     VerticalAlignment="Center" Text="{Binding Item.SharedData.MaxStack, StringFormat=' / {0}', FallbackValue=' / MAX'}"/>
+                                <Button Padding="0" Cursor="Hand" Margin="4,0,0,0" Height="16" Width="16"
+                                    ToolTip="Fill up to maximum stack size"
+                                    HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                    Command="{Binding FillStack}" 
+                                    Style="{StaticResource LittleSquareCoolButton}">
+                                    <Path Data="M 50,5 95,97.5 5,97.5 z" Stroke="Green" Stretch="Fill"
+                                      StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round" />
+                                </Button>
                             </StackPanel>
                         </Grid>
                     </Border>

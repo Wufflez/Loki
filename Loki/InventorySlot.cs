@@ -18,6 +18,7 @@ namespace Loki
             DeleteItem = new RelayCommand(_ => Item = null);
             QualityUp = new RelayCommand(QualityUpExecuted, QualityUpCanExecute);
             QualityDown = new RelayCommand(QualityDownExecuted, QualityDownCanExecute);
+            FillStack = new RelayCommand(FillStackExecuted, FillStackCanExecute);
             ToggleCrafter = new RelayCommand(ToggleCrafterExecuted);
             if (position.Y == 0) QuickSlotNumber = position.X + 1;
         }
@@ -29,6 +30,8 @@ namespace Loki
         public RelayCommand DeleteItem { get; }
 
         public RelayCommand RepairItem { get; }
+
+        public RelayCommand FillStack { get; }
 
         public RelayCommand QualityUp { get; }
 
@@ -63,6 +66,17 @@ namespace Loki
             QualityUp.OnCanExecuteChanged();
             QualityDown.OnCanExecuteChanged();
         }
+
+        private bool FillStackCanExecute(object _)
+        {
+            return Item != null && Item.CanStack && Item.Stack < Item.SharedData.MaxStack;
+        }
+
+        private void FillStackExecuted(object _)
+        {
+            Item.Stack = Item.SharedData.MaxStack;
+        }
+
 
         private bool RepairCanExecute(object _)
         {
