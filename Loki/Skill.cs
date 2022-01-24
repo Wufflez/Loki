@@ -43,6 +43,7 @@ namespace Loki
                     SkillType.Ride => Properties.Resources.Riding,
                     SkillType.All => Properties.Resources.All,
                     //_ => throw new ArgumentOutOfRangeException(nameof(type), type, "Unrecognised skill type"),
+                    _ => Properties.Resources.Unknown,
                 };
 
         public SkillType Type { get; }
