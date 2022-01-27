@@ -450,6 +450,9 @@
   <data name="Ponytail 4" xml:space="preserve">
     <value>Ponytail 4</value>
   </data>
+  <data name="PP_Alchemy" xml:space="preserve">
+    <value>PP_Alchemy</value>
+  </data>
   <data name="Rag pants" xml:space="preserve">
     <value>Rag pants</value>
   </data>
@@ -551,6 +554,24 @@
   </data>
   <data name="Utility" xml:space="preserve">
     <value>Utility</value>
+  </data>
+  <data name="VL_Abjuration" xml:space="preserve">
+    <value>VL_Abjuration</value>
+  </data>
+  <data name="VL_Alteration" xml:space="preserve">
+    <value>VL_Alteration</value>
+  </data>
+  <data name="VL_Conjuration" xml:space="preserve">
+    <value>VL_Conjuration</value>
+  </data>
+  <data name="VL_Discipline" xml:space="preserve">
+    <value>VL_Discipline</value>
+  </data>
+  <data name="VL_Evocation" xml:space="preserve">
+    <value>VL_Evocation</value>
+  </data>
+  <data name="VL_Illusion" xml:space="preserve">
+    <value>VL_Illusion</value>
   </data>
   <data name="Wolf armor chest" xml:space="preserve">
     <value>Wolf armor chest</value>

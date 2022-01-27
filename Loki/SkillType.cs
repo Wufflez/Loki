@@ -21,6 +21,13 @@
         Run = 102,
         Swim = 103,
         Ride = 110,
+        VL_Discipline = 781,
+        VL_Abjuration = 791,
+        VL_Alteration = 792,
+        VL_Conjuration = 793,
+        VL_Evocation = 794,
+        VL_Illusion = 795,
+        PP_Alchemy = 2015031201,
         All = 999
     }
 }

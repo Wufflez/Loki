@@ -1400,5 +1400,69 @@ namespace Loki.Properties {
                 return ResourceManager.GetString("Wood Cutting", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wood Cutting.
+        /// </summary>
+        public static string VL_Discipline {
+            get {
+                return ResourceManager.GetString("VL_Discipline", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wood Cutting.
+        /// </summary>
+        public static string VL_Abjuration {
+            get {
+                return ResourceManager.GetString("VL_Abjuration", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wood Cutting.
+        /// </summary>
+        public static string VL_Alteration {
+            get {
+                return ResourceManager.GetString("VL_Alteration", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wood Cutting.
+        /// </summary>
+        public static string VL_Conjuration {
+            get {
+                return ResourceManager.GetString("VL_Conjuration", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wood Cutting.
+        /// </summary>
+        public static string VL_Evocation {
+            get {
+                return ResourceManager.GetString("VL_Evocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wood Cutting.
+        /// </summary>
+        public static string VL_Illusion {
+            get {
+                return ResourceManager.GetString("VL_Illusion", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Wood Cutting.
+        /// </summary>
+        public static string PP_Alchemy {
+            get {
+                return ResourceManager.GetString("PP_Alchemy", resourceCulture);
+            }
+        }
+       
     }
 }
