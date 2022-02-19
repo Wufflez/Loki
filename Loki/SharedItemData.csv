@@ -408,3 +408,8 @@ Wood,true,false,100,50,50,Wood,1,1
 wraith_melee,true,true,100,50,1,Wraith melee,1,3
 YagluthDrop,true,false,100,50,30,Yagluth thing,1,1
 YmirRemains,true,false,100,50,50,Ymir flesh,1,1
+ArmorRootChest,true,true,1100,100,1,Root harnesk,4,7
+ArmorRootLegs,true,true,1100,100,1,Root leggings,4,11
+HelmetRoot,true,true,1100,100,1,Root mask,4,6
+Root,true,false,100,50,50,Root,1,1
+TrophyAbomination,true,false,100,50,20,Abomination trophy,1,13
