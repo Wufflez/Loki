@@ -103,6 +103,11 @@ namespace Loki
             {
                 Unrecognised = true;
             }
+            else
+            {                
+                // Force-calculating max durability initial value
+                MaxDurability = 1;
+            }
 
         }
 
