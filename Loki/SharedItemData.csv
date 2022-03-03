@@ -418,7 +418,7 @@ WolfHairBundle,true,false,100,50,50,Fenris hair,1,1
 WolfClaw,true,false,100,50,20,Fenris claw,1,1
 TrophyUlv,true,false,100,50,20,Ulv trophy,1,13
 TrophyCultist,true,false,100,50,20,Cultist trophy,1,13
-ArmorFenringLegs,true,true,1600,200,1,Fenris leggings,4,11
-HelmetFenring,true,true,1600,200,1,Fenris hood,4,6
-ArmorFenringChest,true,true,1600,200,1,Fenris coat,4,7
-FistFenrirClaw,true,true,450,50,1,Flesh Rippers,4,12
+ArmorFenringLegs,true,true,1000,200,1,Fenris leggings,4,11
+HelmetFenring,true,true,1000,200,1,Fenris hood,4,6
+ArmorFenringChest,true,true,1000,200,1,Fenris coat,4,7
+FistFenrirClaw,true,true,300,50,1,Flesh Rippers,4,12
