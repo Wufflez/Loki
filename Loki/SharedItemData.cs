@@ -80,6 +80,19 @@ namespace Loki
                 DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Bronze plate leggings",
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
+            ["ArmorFenringChest"] = new SharedItemData
+            {
+                ItemName = "ArmorFenringChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 1600,
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Fenris coat",
+                MaxQuality = 4, ItemType = (ItemType)7,
+            },
+            ["ArmorFenringLegs"] = new SharedItemData
+            {
+                ItemName = "ArmorFenringLegs",
+                IsTeleportable = true, UsesDurability = true, MaxDurability = 1600,
+                DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Fenris leggings",
+                MaxQuality = 4, ItemType = (ItemType)11,
+            },
             ["ArmorIronChest"] = new SharedItemData
             {
                 ItemName = "ArmorIronChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
@@ -854,18 +867,6 @@ namespace Loki
                 DurabilityPerLevel = 50, MaxStack = 1, DisplayName = "scream",
                 MaxQuality = 1, ItemType = (ItemType)3,
             },
-            ["Fenris_claw"] = new SharedItemData
-            {
-                ItemName = "Fenris_claw", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Fenris Claw",
-                MaxQuality = 1, ItemType = (ItemType)1,
-            },
-            ["Fenris_hair"] = new SharedItemData
-            {
-                ItemName = "Fenris_hair", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = "Fenris Hair",
-                MaxQuality = 1, ItemType = (ItemType)1,
-            },
             ["FineWood"] = new SharedItemData
             {
                 ItemName = "FineWood", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
@@ -1328,6 +1329,12 @@ namespace Loki
                 DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Bronze helmet",
                 MaxQuality = 4, ItemType = (ItemType)6,
             },
+            ["HelmetFenring"] = new SharedItemData
+            {
+                ItemName = "HelmetFenring", IsTeleportable = true,  UsesDurability = true, MaxDurability = 1600,
+                DurabilityPerLevel = 200,  MaxStack = 1, DisplayName = "Fenris hood",
+                MaxQuality = 4, ItemType = (ItemType)6,
+            },
             ["HelmetDrake"] = new SharedItemData
             {
                 ItemName = "HelmetDrake", IsTeleportable = true, UsesDurability = true, MaxDurability = 1000,
@@ -1416,6 +1423,12 @@ namespace Loki
             {
                 ItemName = "IronScrap", IsTeleportable = false, UsesDurability = false, MaxDurability = 100,
                 DurabilityPerLevel = 50, MaxStack = 30, DisplayName = "Scrap iron",
+                MaxQuality = 1, ItemType = (ItemType)1,
+            },
+            ["JuteRed"] = new SharedItemData
+            {
+                ItemName = "JuteRed", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
+                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Red jute",
                 MaxQuality = 1, ItemType = (ItemType)1,
             },
             ["KnifeBlackMetal"] = new SharedItemData
@@ -2227,7 +2240,7 @@ namespace Loki
                 ItemName = "TrophyCultist", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
                 DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Cultist trophy",
                 MaxQuality = 1, ItemType = (ItemType)13,
-            }
+            },
             ["TrophyDeathsquito"] = new SharedItemData
             {
                 ItemName = "TrophyDeathsquito", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
@@ -2401,7 +2414,7 @@ namespace Loki
                 ItemName = "TrophyUlv", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
                 DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Ulv trophy",
                 MaxQuality = 1, ItemType = (ItemType)13,
-            }
+            },
             ["TrophyWolf"] = new SharedItemData
             {
                 ItemName = "TrophyWolf", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
@@ -2448,6 +2461,18 @@ namespace Loki
             {
                 ItemName = "WitheredBone", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
                 DurabilityPerLevel = 50, MaxStack = 30, DisplayName = "Withered bone",
+                MaxQuality = 1, ItemType = (ItemType)1,
+            },
+            ["WolfClaw"] = new SharedItemData
+            {
+                ItemName = "WolfClaw", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
+                DurabilityPerLevel = 50,  MaxStack = 20, DisplayName = "Fenris Claw",
+                MaxQuality = 1,  ItemType = (ItemType)1,
+            },
+            ["WolfHairBundle"] = new SharedItemData
+            {
+                ItemName = "WolfHairBundle", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
+                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = "Fenris Hair",
                 MaxQuality = 1, ItemType = (ItemType)1,
             },
             ["WolfFang"] = new SharedItemData
