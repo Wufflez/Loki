@@ -413,3 +413,7 @@ ArmorRootLegs,true,true,1100,100,1,Root leggings,4,11
 HelmetRoot,true,true,1100,100,1,Root mask,4,6
 Root,true,false,100,50,50,Root,1,1
 TrophyAbomination,true,false,100,50,20,Abomination trophy,1,13
+JuteRed,true,false,100,50,50,Red jute,1,1
+WolfHairBundle,true,false,100,50,50,Fenris hair,1,1
+WolfClaw,true,false,100,50,20,Fenris claw,1,1
+TrophyUlv,true,false,100,50,20,Ulv trophy,1,13
