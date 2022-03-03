@@ -82,14 +82,14 @@ namespace Loki
             },
             ["ArmorFenringChest"] = new SharedItemData
             {
-                ItemName = "ArmorFenringChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 1600,
+                ItemName = "ArmorFenringChest", IsTeleportable = true, UsesDurability = true, MaxDurability = 800,
                 DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Fenris coat",
                 MaxQuality = 4, ItemType = (ItemType)7,
             },
             ["ArmorFenringLegs"] = new SharedItemData
             {
                 ItemName = "ArmorFenringLegs",
-                IsTeleportable = true, UsesDurability = true, MaxDurability = 1600,
+                IsTeleportable = true, UsesDurability = true, MaxDurability = 800,
                 DurabilityPerLevel = 200, MaxStack = 1, DisplayName = "Fenris leggings",
                 MaxQuality = 4, ItemType = (ItemType)11,
             },
@@ -1331,7 +1331,7 @@ namespace Loki
             },
             ["HelmetFenring"] = new SharedItemData
             {
-                ItemName = "HelmetFenring", IsTeleportable = true,  UsesDurability = true, MaxDurability = 1600,
+                ItemName = "HelmetFenring", IsTeleportable = true,  UsesDurability = true, MaxDurability = 800,
                 DurabilityPerLevel = 200,  MaxStack = 1, DisplayName = "Fenris hood",
                 MaxQuality = 4, ItemType = (ItemType)6,
             },
