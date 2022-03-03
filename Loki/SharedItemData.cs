@@ -854,6 +854,18 @@ namespace Loki
                 DurabilityPerLevel = 50, MaxStack = 1, DisplayName = "scream",
                 MaxQuality = 1, ItemType = (ItemType)3,
             },
+            ["Fenris_claw"] = new SharedItemData
+            {
+                ItemName = "Fenris_claw", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
+                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Fenris Claw",
+                MaxQuality = 1, ItemType = (ItemType)1,
+            },
+            ["Fenris_hair"] = new SharedItemData
+            {
+                ItemName = "Fenris_hair", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
+                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = "Fenris Hair",
+                MaxQuality = 1, ItemType = (ItemType)1,
+            },
             ["FineWood"] = new SharedItemData
             {
                 ItemName = "FineWood", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
@@ -2210,6 +2222,12 @@ namespace Loki
                 DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Bonemass trophy",
                 MaxQuality = 1, ItemType = (ItemType)13,
             },
+            ["TrophyCultist"] = new SharedItemData
+            {
+                ItemName = "TrophyCultist", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
+                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Cultist trophy",
+                MaxQuality = 1, ItemType = (ItemType)13,
+            }
             ["TrophyDeathsquito"] = new SharedItemData
             {
                 ItemName = "TrophyDeathsquito", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
@@ -2378,6 +2396,12 @@ namespace Loki
                 DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "The Elder trophy",
                 MaxQuality = 1, ItemType = (ItemType)13,
             },
+            ["TrophyUlv"] = new SharedItemData
+            {
+                ItemName = "TrophyUlv", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
+                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Ulv trophy",
+                MaxQuality = 1, ItemType = (ItemType)13,
+            }
             ["TrophyWolf"] = new SharedItemData
             {
                 ItemName = "TrophyWolf", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
