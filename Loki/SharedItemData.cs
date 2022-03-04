@@ -1428,7 +1428,7 @@ namespace Loki
             ["JuteRed"] = new SharedItemData
             {
                 ItemName = "JuteRed", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 20, DisplayName = "Red jute",
+                DurabilityPerLevel = 50, MaxStack = 50, DisplayName = "Red jute",
                 MaxQuality = 1, ItemType = (ItemType)1,
             },
             ["KnifeBlackMetal"] = new SharedItemData
