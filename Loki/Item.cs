@@ -9,7 +9,6 @@ namespace Loki
     {
         private int _stack;
         private float _durability;
-        private double _maxDurability;
         private int _quality;
         private string _crafterName;
         private long _crafterId;
@@ -51,6 +50,7 @@ namespace Loki
                 if (value.Equals(_quality)) return;
                 _quality = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(MaxDurability)); // Max durabilty is calcualted based on the quality!
             }
         }
 
@@ -76,15 +76,8 @@ namespace Loki
 
         public bool HasCrafterTag => CrafterId != 0;
 
-        public double MaxDurability
-        {
-            get => _maxDurability;
-            set
-            {
-                _maxDurability = SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
-                OnPropertyChanged();
-            }
-        }
+        public double MaxDurability => SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
+  
 
         public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName)
         {

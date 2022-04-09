@@ -47,7 +47,6 @@ namespace Loki
         private void QualityUpExecuted(object _)
         {
             Item.Quality = Item.Quality + 1;
-            Item.MaxDurability = 1; // Force-recalculating max durability
             RepairExecuted(this);
             QualityUp.OnCanExecuteChanged();
             QualityDown.OnCanExecuteChanged();
@@ -61,7 +60,6 @@ namespace Loki
         private void QualityDownExecuted(object _)
         {
             Item.Quality = Item.Quality - 1;
-            Item.MaxDurability = 1; // Force-recalculating max durability
             RepairExecuted(this);
             QualityUp.OnCanExecuteChanged();
             QualityDown.OnCanExecuteChanged();
