@@ -2213,7 +2213,7 @@ namespace Loki
             ["TankardAnniversary"] = new SharedItemData
             {
                 ItemName = "TankardAnniversary", IsTeleportable = true, UsesDurability = false, MaxDurability = 100,
-                DurabilityPerLevel = 50, MaxStack = 1, DisplayName = "$item_tankard_anniversary",
+                DurabilityPerLevel = 50, MaxStack = 1, DisplayName = "Anniversary Tankard",
                 MaxQuality = 1, ItemType = (ItemType)3,
             },
             ["TankardOdin"] = new SharedItemData
