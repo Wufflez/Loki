@@ -51,7 +51,7 @@ namespace Loki
         public static CharacterFile[] LoadCharacterFiles()
         {
             string localLowPath = Shell32.GetKnownFolderPath(Shell32.LocalLowId);
-            string charactersPath = Path.Join(localLowPath, @"IronGate\Valheim\characters");
+            string charactersPath = Path.Join(localLowPath, @"IronGate\Valheim\characters_local");
             return Directory.EnumerateFiles(charactersPath, "*.fch").Select(FromPath).ToArray();
         }
 
