@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
+using System.Windows.Markup;
 using System.Windows.Media;
 using JetBrains.Annotations;
 
@@ -39,9 +40,13 @@ namespace Loki
         private string _hair;
         private Vector3 _skinColour;
         private Vector3 _hairColour;
+        private float _stamina;
+        private float _maxEitr;
+        private float _eitr;
 
         private int _modelIndex;
         private readonly List<Food> _food = new List<Food>();
+        private Dictionary<String, String> customPlayerData = new Dictionary<String, String>();
         public ObservableCollection<Skill> Skills { get; } = new ObservableCollection<Skill>();
 
         public Inventory Inventory { get; } = new Inventory(8, 4);
@@ -235,13 +240,12 @@ namespace Loki
                 var customDataCount = reader.ReadInt32();
                 for (int i = 0; i < customDataCount; i++)
                 {
-                    reader.ReadString();
-                    reader.ReadString();
+                    player.customPlayerData.Add(reader.ReadString(), reader.ReadString());
                 }
 
-                var stamina = reader.ReadSingle();
-                var maxEitr = reader.ReadSingle();
-                var eitr = reader.ReadSingle();
+                player._stamina = reader.ReadSingle();
+                player._maxEitr = reader.ReadSingle();
+                player._eitr = reader.ReadSingle();
             }
 
             // Sanity check - compare with player data length provided.
