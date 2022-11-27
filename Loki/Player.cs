@@ -229,6 +229,21 @@ namespace Loki
                 }
             }
 
+            if (version >= 26)
+            {
+                // TODO: Actually save these
+                var customDataCount = reader.ReadInt32();
+                for (int i = 0; i < customDataCount; i++)
+                {
+                    reader.ReadString();
+                    reader.ReadString();
+                }
+
+                var stamina = reader.ReadSingle();
+                var maxEitr = reader.ReadSingle();
+                var eitr = reader.ReadSingle();
+            }
+
             // Sanity check - compare with player data length provided.
             long amountRead = input.Position - playerDataStartPos;
             if (amountRead != expectedPlayerDataLength)
