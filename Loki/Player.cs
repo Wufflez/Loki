@@ -387,10 +387,13 @@ namespace Loki
                 (long crafterId, string crafterName) =
                     version >= 103 ? (reader.ReadInt64(), reader.ReadString()) : (0, string.Empty);
                 var itemData = new List<(string, string)>();
-                var itemDataCount = reader.ReadInt32();
-                for (int j = 0; j < itemDataCount; j++)
+                if (version >= 104)
                 {
-                    itemData.Add((reader.ReadString(), reader.ReadString()));
+                    var itemDataCount = reader.ReadInt32();
+                    for (int j = 0; j < itemDataCount; j++)
+                    {
+                        itemData.Add((reader.ReadString(), reader.ReadString()));
+                    }
                 }
                 Debug.WriteLine($"ReadInv: Item={name}, Position={pos}");
                 if(name != "") items.Add(new Item(name, stack, durability, pos, equiped, quality, variant, crafterId, crafterName, itemData));
