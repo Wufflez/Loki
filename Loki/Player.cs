@@ -16,8 +16,8 @@ namespace Loki
 {
     public class Player: INotifyPropertyChanged
     {
-        private const int Version = 25;
-        private const int InventoryVersion = 103;
+        private const int Version = 26;
+        private const int InventoryVersion = 104;
         private const int SkillVersion = 2;
 
         private float _maxHealth;
