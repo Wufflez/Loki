@@ -237,7 +237,6 @@ namespace Loki
 
             if (version >= 26)
             {
-                // TODO: Actually save these
                 var customDataCount = reader.ReadInt32();
                 for (int i = 0; i < customDataCount; i++)
                 {
