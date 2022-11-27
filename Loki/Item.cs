@@ -80,7 +80,7 @@ namespace Loki
         public double MaxDurability => SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
   
 
-        public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName, Dictionary<String, String> itemData)
+        public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName, List<(string, string)> itemData)
         {
             Name = name;
             Stack = stack;
@@ -104,7 +104,7 @@ namespace Loki
 
         [CanBeNull] // Can be null if the item is unrecognised (very new update not accounted for etc.)
         public SharedItemData SharedData { get; }
-        public Dictionary<String, String> ItemData { get; }
+        public List<(string, string)> ItemData { get; }
 
         public bool HasQualityLevels => SharedData?.MaxQuality > 1;
 
