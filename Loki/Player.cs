@@ -350,8 +350,14 @@ namespace Loki
                 int variant = version >= 102 ? reader.ReadInt32() : 0;
                 (long crafterId, string crafterName) =
                     version >= 103 ? (reader.ReadInt64(), reader.ReadString()) : (0, string.Empty);
+                var itemData = new Dictionary<string, string>();
+                var itemDataCount = reader.ReadInt32();
+                for (int j = 0; j < itemDataCount; j++)
+                {
+                    itemData.Add(reader.ReadString(), reader.ReadString());
+                }
                 Debug.WriteLine($"ReadInv: Item={name}, Position={pos}");
-                if(name != "") items.Add(new Item(name, stack, durability, pos, equiped, quality, variant, crafterId, crafterName));
+                if(name != "") items.Add(new Item(name, stack, durability, pos, equiped, quality, variant, crafterId, crafterName, itemData));
             }
             return items;
         }

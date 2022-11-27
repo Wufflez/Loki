@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
@@ -79,7 +80,7 @@ namespace Loki
         public double MaxDurability => SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
   
 
-        public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName)
+        public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName, Dictionary<String, String> itemData)
         {
             Name = name;
             Stack = stack;
@@ -97,10 +98,13 @@ namespace Loki
                 Unrecognised = true;
             }
 
+            ItemData = itemData;
+
         }
 
         [CanBeNull] // Can be null if the item is unrecognised (very new update not accounted for etc.)
         public SharedItemData SharedData { get; }
+        public Dictionary<String, String> ItemData { get; }
 
         public bool HasQualityLevels => SharedData?.MaxQuality > 1;
 
