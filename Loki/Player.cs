@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -309,6 +310,13 @@ namespace Loki
                 writer.Write(item.Variant);
                 writer.Write(item.CrafterId);
                 writer.Write(item.CrafterName);
+                writer.Write(item.ItemData.Count);
+                foreach (var customData in item.ItemData)
+                {
+                    var (key, value) = customData;
+                    writer.Write(key);
+                    writer.Write(value);
+                }
             }
 
             writer.WriteCountItems(_knownRecipes);
@@ -350,6 +358,18 @@ namespace Loki
                 writer.Write(skill.Level);
                 writer.Write(skill.Accumulator);
             }
+
+            writer.Write(customPlayerData.Count);
+            foreach (var customData in customPlayerData)
+            {
+                var (key, value) = customData;
+                writer.Write(key);
+                writer.Write(value);
+            }
+
+            writer.Write(_stamina);
+            writer.Write(_maxEitr);
+            writer.Write(_eitr);
         }
 
         private static List<Item> ReadInventory(Stream input, bool leaveOpen = false)
