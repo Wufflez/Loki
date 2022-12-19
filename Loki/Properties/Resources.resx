@@ -345,6 +345,9 @@
   <data name="Helmet" xml:space="preserve">
     <value>Helmet</value>
   </data>
+  <data name="Hide character backups" xml:space="preserve">
+    <value>Hide backup character files</value>
+  </data>
   <data name="Huntsman bow" xml:space="preserve">
     <value>Huntsman bow</value>
   </data>
@@ -470,6 +473,9 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="Select character" xml:space="preserve">
+    <value>Select character</value>
   </data>
   <data name="Shield" xml:space="preserve">
     <value>Shield</value>
