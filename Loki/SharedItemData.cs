@@ -34,23 +34,23 @@ namespace Loki
 
     public class SharedItemData
     {
-        public string ItemName { get; set; }
-        public bool IsTeleportable { get; set; }
-        public bool UsesDurability { get; set; }
-        public double MaxDurability { get; set; }
-        public double DurabilityPerLevel { get; set; }
-        public int MaxStack { get; set; }
-        public string DisplayName { get; set; }
-        public int MaxQuality { get; set; }
-        public ItemType ItemType {get;set;}
-    }
+        public string ItemName { get; set; } = "";
+        public bool IsTeleportable { get; set; } = true;
+        public bool UsesDurability { get; set; } = false;
+        public double MaxDurability { get; set; } = 0d;
+        public double DurabilityPerLevel { get; set; } = 0d;
+        public int MaxStack { get; set; } = 0;
+        public string DisplayName { get; set; } = "";
+        public int MaxQuality { get; set; } = 0;
+        public ItemType ItemType {get;set;} = ItemType.None;
+    }    
 
     public static class ItemDb
     {
         private static readonly Dictionary<string, SharedItemData> ItemData = ReadItemDataFromCsvFile("SharedItemData.csv");
 
         public static SharedItemData TryFindSharedData(string itemName) => 
-            ItemData.TryGetValue(itemName, out SharedItemData sharedData) ? sharedData : null;
+            ItemData.TryGetValue(itemName, out SharedItemData sharedData) ? sharedData : new SharedItemData { ItemName=itemName, DisplayName=$"<{itemName}>" };
 
         public static IEnumerable<SharedItemData> AllItems => ItemData.Values;
 
