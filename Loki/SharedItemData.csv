@@ -453,7 +453,7 @@ RoyalJelly,true,false,100,50,50,Royal jelly,1,1
 Sap,true,false,100,50,50,Sap,1,1
 ScaleHide,true,false,100,50,50,Scale hide,1,1
 Softtissue,true,false,100,50,40,Soft tissue,1,1
-SpearCarapace,true,true,100,50,1,Carapace spear,,3
+SpearCarapace,true,true,100,50,1,Carapace spear,1,3
 TrophyGjall,true,false,100,50,20,Gjall trophy,1,13
 TrophySeekerBrute,true,false,100,50,20,Seeker soldier trophy,1,13
 YggdrasilWood,true,false,100,50,50,Yggdrasil wood,1,1
