@@ -77,7 +77,7 @@ namespace Loki
 
         public bool HasCrafterTag => CrafterId != 0;
 
-        public double MaxDurability => SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
+        public double MaxDurability => SharedData == null ? 0d : SharedData.MaxDurability + Math.Max(0, Quality - 1) * SharedData.DurabilityPerLevel;
   
 
         public Item(string name, int stack, float durability, Vector2i pos, bool equiped, int quality, int variant, long crafterId, string crafterName, List<(string, string)> itemData)
