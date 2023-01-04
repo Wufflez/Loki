@@ -68,13 +68,27 @@ namespace Loki
             set => _modelIndex = value.Index;
         }
 
+        private Color ColorFromVector3(Vector3 vec)
+        {
+            // .NET 7 bug with `FromScRGB` breaks ToString() on Color class... need to use `FromRGB` method to avoid it.
+            byte red = (byte)(vec.X * 255);
+            byte green = (byte)(vec.Y * 255);
+            byte blue = (byte)(vec.Z * 255);
+            return Color.FromRgb(red, green, blue);
+        }
+
+        private Vector3 Vector3FromColor(Color c)
+        {
+            return new Vector3(c.R / 255f, c.G / 255f, c.B / 255f);
+        }
+
         public Color HairColour
         {
-            get => Color.FromScRgb(1.0f, _hairColour.X, _hairColour.Y, _hairColour.Z);
+            get => ColorFromVector3(_hairColour);
             set
             {
                 if (value.Equals(HairColour)) return;
-                _hairColour = new Vector3(value.ScR, value.ScG, value.ScB);
+                _hairColour = Vector3FromColor(value);
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(RawHairRgb));
             }
@@ -82,11 +96,11 @@ namespace Loki
 
         public Color SkinColour
         {
-            get => Color.FromScRgb(1.0f, _skinColour.X, _skinColour.Y, _skinColour.Z);
+            get => ColorFromVector3(_skinColour);
             set
             {
                 if (value.Equals(SkinColour)) return;
-                _skinColour = new Vector3(value.ScR, value.ScG, value.ScB);
+                _skinColour = Vector3FromColor(value);
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(SkinGlow));
                 OnPropertyChanged(nameof(RawSkinRgb));
@@ -106,8 +120,8 @@ namespace Loki
             }
         }
 
-        public string RawSkinRgb => $"RGB ( {_skinColour.X:F3}, {_skinColour.Y:F3}, {_skinColour.Z:F3})";
-        public string RawHairRgb => $"RGB ( {_hairColour.X:F3}, {_hairColour.Y:F3}, {_hairColour.Z:F3})";
+        public string RawSkinRgb => $"RGB ({_skinColour.X:F3}, {_skinColour.Y:F3}, {_skinColour.Z:F3})";
+        public string RawHairRgb => $"RGB ({_hairColour.X:F3}, {_hairColour.Y:F3}, {_hairColour.Z:F3})";
 
         private Player()
         {
