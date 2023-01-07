@@ -24,6 +24,11 @@ namespace Loki
             InitializeComponent();
         }
 
+        // Copy of all character files
+        private CharacterFile[] _allCharacterFiles = Array.Empty<CharacterFile>();
+        // Keywords in filename defining if a character file is considered a backup  
+        private readonly string[] _characterFilesBackupKeywords = { "backup", "copy", };
+
         public static PlayerProfile selectedPlayerProfile = null;
 
         private async void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
@@ -34,9 +39,8 @@ namespace Loki
 
             try
             {
-                CharacterFiles = await Task.Run(CharacterFile.LoadCharacterFiles);
-                SelectedCharacterFile = CharacterFiles.FirstOrDefault();
-                CommandManager.InvalidateRequerySuggested();
+                _allCharacterFiles = await Task.Run(CharacterFile.LoadCharacterFiles); ;
+                RefhreshCharacterFilesComboBox();
             }
             catch (Exception ex)
             {
@@ -58,7 +62,7 @@ namespace Loki
 
         public CharacterFile[] CharacterFiles
         {
-            get => (CharacterFile[]) GetValue(CharacterFilesProperty);
+            get => (CharacterFile[])GetValue(CharacterFilesProperty);
             set => SetValue(CharacterFilesProperty, value);
         }
 
@@ -72,6 +76,15 @@ namespace Loki
         {
             get => (bool) GetValue(CreateBackupProperty);
             set => SetValue(CreateBackupProperty, value);
+        }
+
+        public static readonly DependencyProperty HideCharacterBackupsProperty = DependencyProperty.Register(
+    "HideCharacterBackups", typeof(bool), typeof(MainWindow), new PropertyMetadata(true));
+
+        public bool HideCharacterBackups
+        {
+            get => (bool)GetValue(HideCharacterBackupsProperty);
+            set => SetValue(HideCharacterBackupsProperty, value);
         }
 
         public static readonly DependencyProperty SaveInProgressProperty = DependencyProperty.Register(
@@ -246,6 +259,23 @@ namespace Loki
                 e.Accepted = filterItems.Any(filterItem =>
                     item.Name.Contains(filterItem, StringComparison.OrdinalIgnoreCase));
             }
+        }
+
+        private void RefhreshCharacterFilesComboBox()
+        {
+            CharacterFiles = HideCharacterBackups // Apply backup filter?
+                // Yes, filter out any file having a name containing backup file keywords
+                ? _allCharacterFiles.Where(f => !_characterFilesBackupKeywords.Any(s => f.FilePath.Contains(s, StringComparison.InvariantCultureIgnoreCase))).ToArray()
+                // No, just show all files
+                : _allCharacterFiles;
+                
+            SelectedCharacterFile = CharacterFiles.FirstOrDefault();
+            CommandManager.InvalidateRequerySuggested();
+        }
+
+        private void CheckBox_Changed(object sender, RoutedEventArgs e)
+        {
+            RefhreshCharacterFilesComboBox();
         }
     }
 }
