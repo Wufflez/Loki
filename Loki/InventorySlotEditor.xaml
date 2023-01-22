@@ -167,7 +167,7 @@
     </UserControl.Resources>
 
 
-    <Border CornerRadius="4" x:Name="LayoutRoot" AllowDrop="True" Drop="BorderDrop">
+    <Border CornerRadius="4" x:Name="LayoutRoot" AllowDrop="True" Drop="BorderDrop" MouseMove="BorderMouseMove">
         <Border.Style>
             <Style TargetType="Border">
                 <Setter Property="Background" Value="DarkGray"/>
@@ -226,6 +226,7 @@
                             <Grid.Effect>
                                 <DropShadowEffect ShadowDepth="0" />
                             </Grid.Effect>
+                            <Image Source="{Binding Item.SharedData.Thumbnail}" Width="48" Height="48" Margin="5"  VerticalAlignment="Top"></Image>
                             <TextBlock
                                 TextWrapping="Wrap" TextAlignment="Center"
                                 FontSize="18" FontWeight="DemiBold" Foreground="White"

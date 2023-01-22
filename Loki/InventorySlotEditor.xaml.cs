@@ -22,11 +22,33 @@ namespace Loki
         {
             if (e.Data.GetData(typeof(SharedItemData)) is SharedItemData itemData)
             {
+                // drop from item picker
                 if (this.DataContext is InventorySlot slot)
                 {
                     var customData = new List<(string, string)>();
                     slot.Item = new Item(itemData.ItemName, itemData.MaxStack, (float)itemData.MaxDurability, slot.Position,
                         false, 1, 0, MainWindow.selectedPlayerProfile.PlayerId, MainWindow.selectedPlayerProfile.PlayerName, customData);
+                }
+            }
+            else if (e.Data.GetData(typeof(InventorySlot)) is InventorySlot sourceSlot)
+            {
+                // drop from inventory slot
+                if (this.DataContext is InventorySlot slot && sourceSlot != slot)
+                {
+                    slot.Item = sourceSlot.Item;
+                    sourceSlot.Item = null;
+                }
+            }
+        }
+
+        private void BorderMouseMove(object sender, MouseEventArgs e)
+        {
+            if (sender is FrameworkElement element && e.LeftButton == MouseButtonState.Pressed)
+            {
+                if (element.DataContext is InventorySlot slot)
+                {
+                    var data = new DataObject(slot);
+                    DragDrop.DoDragDrop(element, data, DragDropEffects.Move);
                 }
             }
         }
