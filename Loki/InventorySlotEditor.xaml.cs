@@ -25,7 +25,7 @@ namespace Loki
                 // drop from item picker
                 if (this.DataContext is InventorySlot slot)
                 {
-                    var customData = new List<(string, string)>();                    
+                    var customData = new List<(string, string)>();
                     slot.Item = new Item(itemData.ItemName, itemData.MaxStack, (float)itemData.MaxDurability, slot.Position,
                         false, 1, 0, MainWindow.selectedPlayerProfile.PlayerId, MainWindow.selectedPlayerProfile.PlayerName, customData);
                 }
