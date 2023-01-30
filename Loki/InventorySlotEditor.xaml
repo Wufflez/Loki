@@ -167,7 +167,7 @@
     </UserControl.Resources>
 
 
-    <Border CornerRadius="4" x:Name="LayoutRoot" AllowDrop="True" Drop="BorderDrop">
+    <Border CornerRadius="4" x:Name="LayoutRoot" AllowDrop="True" Drop="BorderDrop" MouseMove="BorderMouseMove">
         <Border.Style>
             <Style TargetType="Border">
                 <Setter Property="Background" Value="DarkGray"/>
